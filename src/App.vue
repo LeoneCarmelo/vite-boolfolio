@@ -11,7 +11,8 @@ export default {
             projects: null,
             loading: true,
             base_url: 'http://127.0.0.1:8000/',
-            end_point_projects: 'api/projects'
+            end_point_projects: 'api/projects',
+            pages:null
         }
     },
     methods: {
@@ -21,12 +22,18 @@ export default {
                 .then(response => {
                     console.log(response)
                     this.projects = response.data.results.data
-
+                    this.pages = response.data.results
                 })
                 .catch(error => {
                     console.log(error)
                     console.log(error.message)
                 })
+        },
+        next(pages) {
+            this.callAPI(pages.next_page_url)
+        },
+        prev(pages) {
+            this.callAPI(pages.prev_page_url)
         }
     },
     mounted() {
@@ -42,6 +49,22 @@ export default {
             <CardProject v-for="project in projects" :key="project.id" :image="project.image"
                 :link_project="project.link_project" :link_website="project.link_website" :description="project.description"
                 :technologies="project.technologies" />
+        </div>
+        <div class="d-flex justify-content-center py-3">
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li class="page-item">
+                  <button class="page-link" aria-label="Previous" @click="prev(pages)">
+                    <span aria-hidden="true">&laquo;</span>
+                  </button>
+                </li>
+                <li class="page-item">
+                  <button class="page-link" aria-label="Next" @click="next(pages)">
+                    <span aria-hidden="true">&raquo;</span>
+                  </button>
+                </li>
+              </ul>
+            </nav>
         </div>
     </div>
 </template>

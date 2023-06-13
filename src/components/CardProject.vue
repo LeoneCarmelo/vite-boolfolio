@@ -40,7 +40,7 @@ export default {
                 </div>
                 <p class="my-3">{{ cut_description(description) }}</p>
             </div>
-            <div class="card-footer d-flex">
+            <div class="card-footer d-flex flex-wrap">
                 <span v-for="technology in technologies" :key="technology.id" class="mx-1">{{ technology.name }}</span>
                 
             </div>
