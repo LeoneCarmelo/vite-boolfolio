@@ -1,2 +1,15 @@
+@use './variables' as *;
 // Import all of Bootstrap's CSS
 @import "/node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Noto+Sans:wght@400;600;700;800&family=Outfit:wght@400;700&family=Roboto+Condensed:wght@300&display=swap');
+
+body {
+    font-family: 'Comforter', cursive;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 {
+    color: $dark;
+}
