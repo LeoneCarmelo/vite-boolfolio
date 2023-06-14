@@ -46,9 +46,9 @@ export default {
         <div class="container">
             <h1 class="text-center py-4">My Portfolio</h1>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3" v-if="projects">
-                <CardProject v-for="project in projects" :key="project.id" :image="project.image"
-                    :link_project="project.link_project" :link_website="project.link_website"
-                    :description="project.description" :technologies="project.technologies" />
+                    <CardProject v-for="project in projects" :key="project.id" :image="project.image"
+                        :link_project="project.link_project" :link_website="project.link_website"
+                        :description="project.description" :technologies="project.technologies" />
             </div>
             <p v-else class="text-center">No projects found</p>
             <div v-if="projects" class="d-flex justify-content-center py-3">

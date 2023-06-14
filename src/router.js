@@ -3,6 +3,7 @@ import HomePage from './views/HomePage.vue'
 import ProjectsPage from './views/ProjectsPage.vue'
 import AboutPage from './views/AboutPage.vue'
 import ContactPage from './views/ContactPage.vue'
+import ProjectPage from './views/ProjectPage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -26,6 +27,11 @@ const router = createRouter({
             path: '/contact',
             name: 'contact',
             component: ContactPage
+        },
+        {
+            path: '/projects/:slug',
+            name: 'project',
+            component: ProjectPage
         },
 
     ]
