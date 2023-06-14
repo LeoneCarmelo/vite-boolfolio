@@ -2,15 +2,16 @@
 export default {
     name: 'CardProject',
     props: {
-        image:String,
+        image: String,
         link_project: String,
         link_website: String,
         description: String,
         technologies: Array,
+        slug:String
     },
     data() {
         return {
-            
+
         }
     },
     methods: {
@@ -26,7 +27,7 @@ export default {
 
 <template>
     <div class="col">
-        <router-link to="projects/:slug">
+        <router-link :to="{ name: 'project', params: { 'slug': slug } }">
             <div class="card h-100">
                 <div class="card-img-top">
                     <img :src="image" alt="" class="img-fluid">
@@ -34,16 +35,17 @@ export default {
                 <div class="card-body">
                     <div class="link_project py-2">
                         <strong>Link Project: </strong>
-                        <span>{{ link_project }}</span></div>
+                        <span>{{ link_project }}</span>
+                    </div>
                     <div class="link_website py-2">
                         <strong>Link Project: </strong>
-                        <span>{{ link_website }}</span>    
+                        <span>{{ link_website }}</span>
                     </div>
                     <p class="my-3">{{ cut_description(description) }}</p>
                 </div>
                 <div class="card-footer d-flex flex-wrap">
                     <span v-for="technology in technologies" :key="technology.id" class="mx-1">{{ technology.name }}</span>
-                    
+
                 </div>
             </div>
         </router-link>
