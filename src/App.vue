@@ -1,13 +1,13 @@
 <script>
+import AppLinks from './components/AppLinks.vue';
 import WelcomePage from './components/WelcomePage.vue';
-import AppLinks from './components/AppLinks.vue'
 import { store } from './store';
 
 export default {
     components: {
-        WelcomePage,
-        AppLinks
-    },
+    WelcomePage,
+    AppLinks
+},
     data() {
         return {
             store
@@ -21,7 +21,11 @@ export default {
 
 <template>
     <AppLinks />
-    <router-view></router-view>
+    <router-view class="router-view" v-slot="{Component}">
+        <Transition name="page-opacity" mode="out-in">
+            <component :is="Component"/>
+        </Transition>
+    </router-view>
 </template>
 
 <style lang="scss">
@@ -29,5 +33,12 @@ export default {
 @use './styles/variables' as *;
 @use './styles/common' as *;
 
-
+.page-opacity-enter-active,
+.page-opacity-leave-active {
+    transition: 600ms ease all;
+}
+.page-opacity-enter-from,
+.page-opacity-leave-to {
+opacity:0;
+}
 </style>

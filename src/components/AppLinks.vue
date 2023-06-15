@@ -14,13 +14,13 @@ export default {
 </script>
         
 <template>
-<div class="container" v-if="whole_page">
-    <router-link to="/" @click="whole_page = false">Home</router-link>
-    <router-link to="/projects" @click="whole_page = false">Projects</router-link>
-    <router-link to="/about" @click="whole_page = false">About</router-link>
-    <router-link to="/contact" @click="whole_page = false">Contact</router-link>
+<div class="container" v-if="whole_page" @click="whole_page = false">
+    <router-link to="/">Home</router-link>
+    <router-link to="/projects">Projects</router-link>
+    <router-link to="/about">About</router-link>
+    <router-link to="/contact">Contact</router-link>
 </div>
-<AppHeader v-else />
+<AppHeader v-else/>
 </template>
 
 
@@ -38,6 +38,7 @@ export default {
     flex-direction: column;
     gap: 1.5rem;
     background: $dark-75;
+    overflow-y: hidden;
 
     a {
         text-decoration: none;
@@ -46,5 +47,6 @@ export default {
     }
 
 }
+
 
 </style>

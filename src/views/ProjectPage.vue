@@ -44,9 +44,11 @@ export default {
                     <li>{{project.link_project}}</li>
                     <li>{{project.link_website}}</li>
                 </ul>
-                <strong>Languages</strong>
-                <ul class="d-flex list-unstyled">
-                    <li v-for="technology in project.technologies">{{ technology.name }}<img :src="`/storage/${technology.link_img}`" alt=""></li>
+                <strong>Languages:</strong>
+                <ul class="row list-unstyled my-3">
+                    <li v-for="technology in project.technologies" class="col">
+                        <img :src="`${store.base_url}storage/${technology.link_img}`" :alt="technology.name" class="img-fluid h-50">
+                    </li>
                 </ul>
             </div>
         </div>
