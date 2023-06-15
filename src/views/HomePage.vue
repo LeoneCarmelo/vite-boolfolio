@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <h1 v-if="!store.whole_page" class="text-center py-4">My Portfolio</h1>
+    <h1 v-show="!store.whole_page" class="text-center py-4">My Portfolio</h1>
 </template>
 
 
