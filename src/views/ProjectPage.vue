@@ -7,7 +7,6 @@ export default {
         return {
             store,
             project: null,
-            post: null
         }
     },
     methods: {
@@ -16,8 +15,8 @@ export default {
                 .get(url)
                 .then(response => {
                     console.log(response)
-                    this.post = response.data.result
-                    //console.log(this.post)
+                    this.project = response.data.result
+                    //console.log(this.project)
                 })
                 .catch(error => {
                     console.log(error)
@@ -32,7 +31,29 @@ export default {
 </script>
         
 <template>
-<div class="project" :title="$route.params.slug"></div>
+<div class="project" :title="$route.params.slug">
+<div class="container py-5" v-if="project">
+    <div class="row">
+        <div class="col">
+            <img :src="project.image" :alt="project.title">
+        </div>
+        <div class="col">
+            <h3 class="text-center">{{ project.title }}</h3>
+            <div class="data">
+                <ul class="list-unstyled">Links
+                    <li>{{project.link_project}}</li>
+                    <li>{{project.link_website}}</li>
+                </ul>
+                <strong>Languages</strong>
+                <ul class="d-flex list-unstyled">
+                    <li v-for="technology in project.technologies">{{ technology.name }}<img :src="`/storage/${technology.link_img}`" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
 </template>
 
 

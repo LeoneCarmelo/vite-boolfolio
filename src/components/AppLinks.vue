@@ -29,6 +29,7 @@ export default {
 @use '../styles/variables' as *;
 @use '../styles/common' as *;
 .container {
+    position:relative;
     max-width:100%;
     height: 100vh;
     display: flex;
@@ -43,5 +44,7 @@ export default {
         color: $light;
         font-size: 3.5rem;
     }
+
 }
+
 </style>

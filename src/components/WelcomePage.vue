@@ -29,7 +29,6 @@ export default {
     top: 0;
     left: 0;
     background-color: $dark;
-    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
