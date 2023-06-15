@@ -1,5 +1,6 @@
 <script>
 import AppHeader from './AppHeader.vue'
+import { store } from '../store';
 export default {
     name: 'AppLinks',
     components:{
@@ -7,14 +8,14 @@ export default {
     },
     data() {
         return {
-            whole_page: true
+            store
         }
     }
 }
 </script>
         
 <template>
-<div class="container" v-if="whole_page" @click="whole_page = false">
+<div class="container" v-if="store.whole_page" @click="store.whole_page = false" :class="store.whole_page ? 'overflow_y_hide' : ''">
     <router-link to="/">Home</router-link>
     <router-link to="/projects">Projects</router-link>
     <router-link to="/about">About</router-link>
@@ -38,7 +39,7 @@ export default {
     flex-direction: column;
     gap: 1.5rem;
     background: $dark-75;
-    overflow-y: hidden;
+
 
     a {
         text-decoration: none;
