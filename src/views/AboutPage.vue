@@ -1,6 +1,13 @@
 <script>
+import { store } from '../store';
+
 export default {
-    name: 'AboutPage'
+    name: "AboutPage",
+    data() {
+        return {
+            store
+        }
+    }
 }
 </script>
         

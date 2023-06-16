@@ -1,6 +1,12 @@
 <script>
+import { store } from '../store';
 export default {
-    name: 'ContactPage'
+    name: 'ContactPage',
+    data() {
+      return {
+        store
+      }
+    }
 }
 </script>
         
@@ -29,4 +35,6 @@ export default {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

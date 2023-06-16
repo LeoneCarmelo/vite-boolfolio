@@ -6,10 +6,23 @@ export default {
         
 <template>
     <div class="cont_link">
-        <router-link to="/" @click="whole_page = false">Home</router-link>
-        <router-link to="/projects" @click="whole_page = false">Projects</router-link>
-        <router-link to="/about" @click="whole_page = false">About</router-link>
-        <router-link to="/contact" @click="whole_page = false">Contact</router-link>
+        <router-link to="/" @click="whole_page = false">
+            <span class="text-white bg-black">Ho</span>
+            <span>me</span>
+        </router-link>
+        <router-link to="/projects" @click="whole_page = false">
+            <span class="text-white bg-black">Proj</span>
+            <span>ects</span>
+        </router-link>
+        <router-link to="/about" @click="whole_page = false">
+            <span class="text-white bg-black">Abo</span>
+            <span>ut</span>
+        </router-link>
+        <router-link to="/contact" @click="whole_page = false">
+            <span class="text-white bg-black">Con</span>
+            <span>tact</span>
+        </router-link>
+     <!--    <router-link :to=""></router-link> -->
     </div>
 </template>
 
@@ -20,19 +33,33 @@ export default {
 @use '../styles/common' as *;
 
 .cont_link {
-    position:sticky;
-    top:0;
-    padding:1rem;
+    position: sticky;
+    top: 0;
+    padding: 1rem;
     z-index: 1;
-    background: $dark;
-    display:flex;
-    justify-content:center;
-    gap:1rem;
+    color: $dark;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
 
     a {
-        text-decoration:none;
-        color:$light;
+        text-decoration: none;
+        color: $light;
         font-size: 2rem;
+        font-weight: semibold;
+        letter-spacing: 5px;
+
+        span:last-child {
+            color:$dark;
+            background-color: $light;
+            transition:all 600ms ease-in-out;
+        }
     }
+}
+
+
+a:hover span:last-child {
+    background-color: $dark;
+    color:$light;
 }
 </style>
