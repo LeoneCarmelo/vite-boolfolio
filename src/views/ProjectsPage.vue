@@ -2,11 +2,13 @@
 import { store } from '../store'
 import axios from 'axios';
 import CardProject from '../components/CardProject.vue';
+import AppHeader from '../components/AppHeader.vue';
 export default {
     name: 'ProjectsPage',
     components: {
-        CardProject
-    },
+    CardProject,
+    AppHeader
+},
     data() {
         return {
             projects: null,
@@ -43,9 +45,10 @@ export default {
 </script>
         
 <template>
+    <div class="cont">
+        <AppHeader/>
         <div class="container">
-            <h1 class="text-center py-4">My Projects</h1>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3" v-if="projects">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5" v-if="projects">
                     <CardProject v-for="project in projects" :key="project.id" :image="project.image"
                         :link_project="project.link_project" :link_website="project.link_website"
                         :description="project.description" :technologies="project.technologies" :slug="project.slug"/>
@@ -68,6 +71,7 @@ export default {
                 </nav>
             </div>
         </div>
+    </div>
 </template>
 
 

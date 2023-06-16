@@ -1,11 +1,9 @@
 <script>
-import AppWelcome from './components/AppWelcome.vue';
 import AppHeader from './components/AppHeader.vue';
 import { store } from './store';
 
 export default {
     components: {
-    AppWelcome,
     AppHeader
 },
     data() {
@@ -20,10 +18,6 @@ export default {
 </script>
 
 <template>
-<!--     <Transition name="fade">
-        <AppWelcome />
-    </Transition> -->
-    <AppHeader />
     <router-view class="router-view" v-slot="{Component}">
         <Transition name="page-opacity" mode="out-in">
             <component :is="Component"/>

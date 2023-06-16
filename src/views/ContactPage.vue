@@ -1,17 +1,21 @@
 <script>
+import AppHeader from '../components/AppHeader.vue';
 import { store } from '../store';
 export default {
-    name: 'ContactPage',
+    name: "ContactPage",
     data() {
-      return {
-        store
-      }
-    }
+        return {
+            store
+        };
+    },
+    components: { AppHeader }
 }
 </script>
         
 <template>
-    <div class="container">
+  <div class="cont">
+    <AppHeader/>
+    <div class="container" >
         <div class="row">
             <form action="" method="post" class="py-5 d-flex flex-column">
                 <div class="mb-3">
@@ -32,6 +36,7 @@ export default {
             </form>
         </div>
     </div>
+  </div>
 </template>
 
 

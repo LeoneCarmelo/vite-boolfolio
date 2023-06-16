@@ -1,54 +1,56 @@
 <script>
+
+
 export default {
-    name: 'CardProject',
+    name: "CardProject",
     props: {
         image: String,
         link_project: String,
         link_website: String,
         description: String,
         technologies: Array,
-        slug:String
+        slug: String
     },
     data() {
-        return {
-
-        }
+        return {};
     },
     methods: {
         cut_description(description) {
             if (description.length > 100) {
-                return description.substring(0, 100)
+                return description.substring(0, 100);
             }
-            return description
+            return description;
         }
-    }
+    },
+
 }
 </script>
 
 <template>
-    <div class="col">
-        <router-link :to="{ name: 'project', params: { 'slug': slug } }">
-            <div class="card h-100">
-                <div class="card-img-top">
-                    <img :src="image" alt="" class="img-fluid">
-                </div>
-                <div class="card-body">
-                    <div class="link_project py-2">
-                        <strong>Link Project: </strong>
-                        <span>{{ link_project }}</span>
+    <div class="cont">
+        <div class="col">
+            <router-link :to="{ name: 'project', params: { 'slug': slug } }">
+                <div class="card h-100">
+                    <div class="card-img-top">
+                        <img :src="image" alt="" class="img-fluid">
                     </div>
-                    <div class="link_website py-2">
-                        <strong>Link Project: </strong>
-                        <span>{{ link_website }}</span>
+    <!--                 <div class="card-body">
+                        <div class="link_project py-2">
+                            <strong>Link Project: </strong>
+                            <span>{{ link_project }}</span>
+                        </div>
+                        <div class="link_website py-2">
+                            <strong>Link Project: </strong>
+                            <span>{{ link_website }}</span>
+                        </div>
+                        <p class="my-3">{{ cut_description(description) }}</p>
+                    </div> -->
+                    <div class="card-footer d-flex flex-wrap">
+                        <span v-for="technology in technologies" :key="technology.id" class="mx-1">{{ technology.name }}</span>
                     </div>
-                    <p class="my-3">{{ cut_description(description) }}</p>
                 </div>
-                <div class="card-footer d-flex flex-wrap">
-                    <span v-for="technology in technologies" :key="technology.id" class="mx-1">{{ technology.name }}</span>
-
-                </div>
-            </div>
-        </router-link>
+            </router-link>
+        </div>
     </div>
 </template>
 
