@@ -52,6 +52,10 @@ export default {
     <AppHeader />
     <div class="container">
       <div class="row">
+        <div class="alert alert-success mt-4 w-75 mx-auto text-center" role="alert">
+          <strong>Message Received!</strong> We will answer you as soon as possible.
+        </div>
+        
         <form @submit.prevent="sendForm()" class="py-5 d-flex flex-column">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
