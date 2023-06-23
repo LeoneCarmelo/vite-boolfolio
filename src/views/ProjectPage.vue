@@ -44,7 +44,9 @@ export default {
         <div class="container py-5" v-if="project">
             <div class="row">
                 <div class="col">
-                    <img :src="project.image" :alt="project.title">
+                    <div class="screenshot">
+                        <img :src="`${store.base_url}storage/${project.image}`" :alt="project.title" class="img-fluid">
+                    </div>
                 </div>
                 <div class="col">
                     <h3 class="text-center">{{ project.title }}</h3>

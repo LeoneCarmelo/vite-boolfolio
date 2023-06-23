@@ -49,7 +49,7 @@ export default {
         <AppHeader/>
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5" v-if="projects">
-                    <CardProject v-for="project in projects" :key="project.id" :image="project.image"
+                    <CardProject v-for="project in projects" :key="project.id" :image="`${store.base_url}storage/${project.image}`"
                         :link_project="project.link_project" :link_website="project.link_website"
                         :description="project.description" :technologies="project.technologies" :slug="project.slug"/>
             </div>
