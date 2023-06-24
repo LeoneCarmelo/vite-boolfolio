@@ -28,29 +28,15 @@ export default {
 
 <template>
     <div class="cont rounded-1">
-        <div class="col rounded-1">
+        <div class="col rounded-1 h-100">
             <router-link :to="{ name: 'project', params: { 'slug': slug } }">
                 <div class="card h-100 position-relative rounded-1">
                     <div class="overlay_card rounded-1">
                         <h2 class="fw-bold">View more</h2>
                     </div>
-                    <div class="card-img-top rounded-1">
-                        <img :src="image" alt="" class="img-fluid rounded-1">
+                    <div class="card-img-top rounded-1 h-100">
+                        <img :src="image" alt="" class="img-fluid rounded-1 h-100">
                     </div>
-    <!--                 <div class="card-body">
-                        <div class="link_project py-2">
-                            <strong>Link Project: </strong>
-                            <span>{{ link_project }}</span>
-                        </div>
-                        <div class="link_website py-2">
-                            <strong>Link Project: </strong>
-                            <span>{{ link_website }}</span>
-                        </div>
-                        <p class="my-3">{{ cut_description(description) }}</p>
-                    </div> -->
-<!--                     <div class="card-footer d-flex flex-wrap">
-                        <span v-for="technology in technologies" :key="technology.id" class="mx-1">{{ technology.name }}</span>
-                    </div> -->
                 </div>
             </router-link>
         </div>
