@@ -45,11 +45,28 @@ export default {
 }
 .container {
     height:calc(100vh - 80px);
+
+    h1 {
+        animation-name: slidein;
+        animation-duration: 1.5s;
+    }
 }
 span {
     font-family: 'Comforter', cursive;
         color: $dark;
         font-size: 7rem;
+}
+
+@keyframes slidein {
+    from {
+        opacity:0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity:1;
+        transform: translateX(0);
+    }
 }
 
 </style>
