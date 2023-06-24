@@ -36,7 +36,12 @@ export default {
 @use '../styles/variables' as *;
 @use '../styles/common' as *;
 .cont {
-    background-image: linear-gradient(to right, white, black);;
+    background-image: url('lion4.png'), linear-gradient(to right, white, black);
+    background-repeat: no-repeat, no-repeat;
+    background-position: right, center;
+    background-size: contain;
+
+    
 }
 .container {
     height:calc(100vh - 80px);

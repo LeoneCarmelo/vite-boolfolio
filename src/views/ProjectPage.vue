@@ -42,7 +42,7 @@ export default {
 <template>
     <div class="project" :title="$route.params.slug">
         <div class="container py-5" v-if="project">
-            <div class="row">
+            <div class="row row-cols-1">
                 <div class="col">
                     <div class="screenshot">
                         <img :src="`${store.base_url}storage/${project.image}`" :alt="project.title" class="img-fluid">
@@ -52,14 +52,14 @@ export default {
                     <h3 class="text-center">{{ project.title }}</h3>
                     <div class="data">
                         <ul class="list-unstyled">Links
-                            <li>{{ project.link_project }}</li>
+                            <li><a :href="project.link_project" target="_blank">{{ project.link_project }}</a></li>
                             <li>{{ project.link_website }}</li>
                         </ul>
                         <strong>Languages:</strong>
                         <ul class="row list-unstyled my-3">
                             <li v-for="technology in project.technologies" class="col">
                                 <img :src="`${store.base_url}storage/${technology.link_img}`" :alt="technology.name"
-                                    class="img-fluid h-50">
+                                    class="img-fluid h-25">
                             </li>
                         </ul>
                     </div>

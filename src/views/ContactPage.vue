@@ -52,7 +52,7 @@ export default {
     <AppHeader />
     <div class="container">
       <div class="row">
-        <div class="alert alert-success mt-4 w-75 mx-auto text-center" role="alert">
+        <div v-if="success" class="alert alert-success mt-4 w-75 mx-auto text-center" role="alert">
           <strong>Message Received!</strong> We will answer you as soon as possible.
         </div>
         

@@ -14,19 +14,19 @@ export default {
             <ul class="navbar-nav">
                 <router-link to="/" class="nav-link">
                     <span class="text-white bg-black">Ho</span>
-                    <span>me</span>
+                    <span :class="$route.path === '/' ? 'bg-black text-white' : ''">me</span>
                 </router-link>
                 <router-link to="/projects" class="nav-link">
                     <span class="text-white bg-black">Proj</span>
-                    <span>ects</span>
+                    <span :class="$route.path === '/projects' ? 'bg-black text-white' : ''">ects</span>
                 </router-link>
                 <router-link to="/about" class="nav-link">
                     <span class="text-white bg-black">Abo</span>
-                    <span>ut</span>
+                    <span :class="$route.path === '/about' ? 'bg-black text-white' : ''">ut</span>
                 </router-link>
                 <router-link to="/contact" class="nav-link">
                     <span class="text-white bg-black">Con</span>
-                    <span>tact</span>
+                    <span :class="$route.path === '/contact' ? 'bg-black text-white' : ''">tact</span>
                 </router-link>
             </ul>
         </div>
