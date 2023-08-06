@@ -40,11 +40,11 @@ export default {
 </script>
         
 <template>
-    <div class="project bg-" :title="$route.params.slug">
+    <div class="project position-relative" :title="$route.params.slug">
         <div class="container py-5 w-75" v-if="project">
             <div class="row row-cols-1">
                 <div class="col mb-4">
-                    <div class="screenshot">
+                    <div class="">
                         <img :src="`${store.base_url}storage/${project.image}`" :alt="project.title" class="img-fluid">
                     </div>
                 </div>
@@ -59,7 +59,8 @@ export default {
                             </li>
                             <li class="d-flex w-100"><strong class="fs-5">Link to repository: </strong>
                                 <a :href="project.link_project" target="_blank" class="ms-2 fs-5 text-decoration-none">
-                                    <img src="/node_modules/bootstrap-icons/icons/eye.svg" alt="Link repository" class="ms-2 d-inline d-lg-none">
+                                    <img src="/node_modules/bootstrap-icons/icons/eye.svg" alt="Link repository"
+                                        class="ms-2 d-inline d-lg-none">
                                     <span class="d-none d-lg-block">{{ project.link_project }}</span>
                                 </a>
                             </li>
@@ -83,7 +84,6 @@ export default {
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -93,10 +93,10 @@ export default {
 @use '../styles/variables' as *;
 @use '../styles/common' as *;
 
-.project {
+/* .project {
     background: radial-gradient(ellipse at top, orangered, transparent),
         radial-gradient(farthest-corner at bottom, $dark, transparent);
-}
+} */
 
 .data:last-child li {
     width: 60px;
@@ -107,6 +107,8 @@ a {
 }
 
 a:hover {
-    color:$light;
+    color: $light;
 }
+
+
 </style>

@@ -8,8 +8,12 @@ body {
     font-family: 'Noto Sans', sans-serif;
     font-family: 'Outfit', sans-serif;
     font-family: 'Roboto Condensed', sans-serif;
+    background: $third;
 }
 
 h1 {
-    color: $dark;
+    color: $fourth;
+    span {
+        color:$second;
+    }
 }

@@ -28,7 +28,7 @@ export default {
 
 <template>
     <div class="cont rounded-1">
-        <div class="col rounded-1 h-100">
+        <div class="col rounded-1 h-100 px-5">
             <router-link :to="{ name: 'project', params: { 'slug': slug } }">
                 <div class="card h-100 position-relative rounded-1">
                     <div class="overlay_card rounded-1">
