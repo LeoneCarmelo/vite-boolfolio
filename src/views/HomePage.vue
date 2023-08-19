@@ -1,12 +1,12 @@
 <script>
 import { store } from '../store';
 import AppHeader from '../components/AppHeader.vue';
-import LinksHome from '../components/LinksHome.vue';
+import NaviGate from '../components/NaviGate.vue';
 export default {
     name: "HomePage",
     components: {
         AppHeader,
-        LinksHome
+        NaviGate
 
     },
     data() {
@@ -36,7 +36,7 @@ export default {
                 easing: "easeOutExpo",
                 delay: 1000
             });
-            console.log(anime)
+            //console.log(anime)
         }
 
 }
@@ -45,7 +45,7 @@ export default {
 <template>
     <div class="cont">
         <!-- <AppHeader /> -->
-        <LinksHome />
+        <NaviGate />
         <div class="container-name overflow_y_hide">
             <div class="row justify-content-center w-100">
                 <div class="col text-center">
@@ -93,13 +93,15 @@ export default {
 
 span {
     font-family: 'Comforter', cursive;
-    color: $dark;
     font-size: 7rem;
 }
+
 #ml3 {
   font-weight: 900;
   font-size: 3.5em;
 }
+
+
 
 @keyframes slidein {
     from {

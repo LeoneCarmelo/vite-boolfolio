@@ -3,12 +3,13 @@ import { store } from '../store'
 import axios from 'axios';
 import CardProject from '../components/CardProject.vue';
 import AppHeader from '../components/AppHeader.vue';
+
 export default {
     name: 'ProjectsPage',
     components: {
-    CardProject,
-    AppHeader
-},
+        CardProject,
+        AppHeader,
+    },
     data() {
         return {
             projects: null,
@@ -46,12 +47,13 @@ export default {
         
 <template>
     <div class="cont">
-        <AppHeader/>
+        <AppHeader />
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 g-3 mt-5" v-if="projects">
-                    <CardProject v-for="project in projects" :key="project.id" :image="`${store.base_url}storage/${project.image}`"
-                        :link_project="project.link_project" :link_website="project.link_website"
-                        :description="project.description" :technologies="project.technologies" :slug="project.slug"/>
+                <CardProject v-for="project in projects" :key="project.id"
+                    :image="`${store.base_url}storage/${project.image}`" :link_project="project.link_project"
+                    :link_website="project.link_website" :description="project.description"
+                    :technologies="project.technologies" :slug="project.slug" />
             </div>
             <p v-else class="text-center">No projects found</p>
             <div v-if="projects" class="d-flex justify-content-center py-3">

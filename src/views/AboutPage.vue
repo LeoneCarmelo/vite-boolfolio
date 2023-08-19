@@ -1,15 +1,34 @@
 <script>
 import AppHeader from '../components/AppHeader.vue';
+import axios from 'axios';
 import { store } from '../store';
 
 export default {
     name: "AboutPage",
     data() {
         return {
-            store
+            store,
+            documents:null
         };
     },
-    components: { AppHeader }
+    components: { AppHeader },
+    methods: {
+        callAPI(url) { //endpoint projects
+            axios
+                .get(url)
+                .then(response => {
+                    console.log(response)
+                    this.documents = response.data.results
+                })
+                .catch(error => {
+                    console.log(error)
+                    console.log(error.message)
+                })
+        },
+    },
+    mounted() {
+        this.callAPI(store.base_url + store.end_point_files)
+    }
 }
 </script>
         
@@ -34,6 +53,13 @@ export default {
                         assumenda minus, exercitationem, quia nobis quaerat optio atque eum quae accusantium error voluptatum dolor
                         explicabo suscipit.
                     </div>
+                </div>
+                <div class="col">
+                    <div class="docs" v-if="documents">
+                        
+                        <a :href="`${store.base_url}storage/${documents[0].file}`"><h5>{{ documents[0].name }}</h5></a>
+                    </div>
+                    <div class="docs" v-else>No Documents found!</div>
                 </div>
             </div>
         </div>
