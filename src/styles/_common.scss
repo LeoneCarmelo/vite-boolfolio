@@ -1,3 +1,4 @@
+@use './variables' as *;
 .overflow_y_hide {
     overflow-y: hidden;
 }
@@ -9,3 +10,40 @@
 .fade_out {
     opacity:0;
 }
+
+.bg_first {
+    background-color: $first !important;
+}
+
+.bg_second {
+    background-color: $second !important;
+}
+
+.bg_third {
+    background-color: $third !important;
+}
+
+.text-first {
+    color:$first !important;
+}
+
+.text-third {
+    color:$third !important;
+}
+
+.text-fourth {
+    color:$fourth !important;
+}
+
+.w-85 {
+    width:85%;
+}
+
+.h-85 {
+    height:85%;
+}
+
+.top-10 {
+    top:-15px;
+}
+

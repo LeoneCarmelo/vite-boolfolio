@@ -8,24 +8,29 @@ body {
     font-family: 'Noto Sans', sans-serif;
     font-family: 'Outfit', sans-serif;
     font-family: 'Roboto Condensed', sans-serif;
-    background: $third;
+    background: $third;//third was before
 }
+
 
 h1 {
     color: $fourth;
+
     span {
-        color:$second;
-        animation:change-color 5s ease 3s infinite alternate;
+        color: $second;
+        animation: change-color 5s ease 3s infinite alternate;
     }
+
     @keyframes change-color {
         0% {
-            color:$second;
+            color: $second;
         }
+
         50% {
-            color:$second;
+            color: $second;
         }
+
         100% {
-            color:$first;
+            color: $first;
         }
     }
 }

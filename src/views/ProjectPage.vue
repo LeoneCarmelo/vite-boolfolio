@@ -1,7 +1,11 @@
 <script>
 import { store } from '../store'
+import GoBack from '../components/GoBack.vue';
 import axios from 'axios';
 export default {
+    components: {
+        GoBack
+    },
     name: 'ProjectPage',
     /*     props: {
             id: {required:true}
@@ -17,7 +21,7 @@ export default {
             axios
                 .get(url)
                 .then(response => {
-                    console.log(response)
+                    //console.log(response)
                     if (response.data.success) {
                         this.project = response.data.result
                     } else {
@@ -44,42 +48,38 @@ export default {
         <div class="container py-5 w-75" v-if="project">
             <div class="row row-cols-1">
                 <div class="col mb-4">
-                    <div class="">
+                    <div class="shadow">
                         <img :src="`${store.base_url}storage/${project.image}`" :alt="project.title" class="img-fluid">
                     </div>
                 </div>
                 <div class="col">
                     <div class="data d-flex flex-column flex-lg-row justify-content-between">
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled w-75 mx-auto mx-md-0 text-center text-md-start">
                             <li class="w-100">
-                                <span class="fs-5"><strong>Project's title: </strong>{{ project.title }}</span>
+                                <span class="fs-2 fw-bold">{{ project.title }}</span>
                             </li>
                             <li class="w-100">
-                                <span class="fs-5"><strong>Type: </strong>{{ project.type.name }}</span>
+                                <span class="fs-5">{{ project.type.name }}</span>
                             </li>
-                            <li class="d-flex w-100"><strong class="fs-5">Link to repository: </strong>
-                                <a :href="project.link_project" target="_blank" class="ms-2 fs-5 text-decoration-none">
-                                    <img src="/node_modules/bootstrap-icons/icons/eye.svg" alt="Link repository"
-                                        class="ms-2 d-inline d-lg-none">
-                                    <span class="d-none d-lg-block">{{ project.link_project }}</span>
+                            <li class="d-flex w-100 justify-content-around justify-content-md-start">
+                                <a :href="project.link_project" target="_blank" class="fs-5 text-decoration-none">
+                                    <span class="">Repo</span>
                                 </a>
+                                <a :href="project.link_website" target="_blank" class="ms-2 fs-5 text-decoration-none">Website</a>
                             </li>
-                            <li class="d-flex w-100"><strong class="fs-5">Link to website: </strong>
-                                <a :href="project.link_website" target="_blank" class="ms-2 fs-5 text-decoration-none">{{
-                                    project.link_website
-                                }}</a>
-                            </li>
-                            <li class="w-100">
-                                <span class="fs-5"><strong class="fs-5">Description: </strong>{{ project.description
-                                }}</span>
+                            <li class="w-100 d-none d-md-block">
+                                <span class="fs-5">{{ project.description }}</span>
                             </li>
                         </ul>
-                        <ul class="list-unstyled my-3 d-flex">
-                            <li v-for="technology in project.technologies">
-                                <img :src="`${store.base_url}storage/${technology.link_img}`" :alt="technology.name"
-                                    class="img-fluid">
-                            </li>
-                        </ul>
+                        <div class="technologies">
+                            <ul class="list-unstyled my-3 d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+                                <li v-for="technology in project.technologies" class="mx-1">
+                                    <img :src="`${store.base_url}storage/${technology.link_img}`" :alt="technology.name"
+                                        class="w-100 h-100 object-fit-contain" loading="lazy">
+                                </li>
+                            </ul>
+                            <GoBack />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,6 +108,13 @@ a {
 
 a:hover {
     color: $light;
+}
+div.technologies li {
+ box-shadow:  0 .5rem 1rem rgba($dark, .15);
+ transition: all 0.25s ease-in-out;
+}
+div.technologies li:hover {
+ box-shadow: none !important;
 }
 
 

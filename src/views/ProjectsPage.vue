@@ -23,7 +23,7 @@ export default {
             axios
                 .get(url)
                 .then(response => {
-                    //console.log(response)
+                    //console.log(response.data.results.data)
                     this.projects = response.data.results.data
                     this.pages = response.data.results
                 })
@@ -49,11 +49,11 @@ export default {
     <div class="cont">
         <AppHeader />
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 g-3 mt-5" v-if="projects">
+            <div class="row  g-3 mt-5" v-if="projects">
                 <CardProject v-for="project in projects" :key="project.id"
                     :image="`${store.base_url}storage/${project.image}`" :link_project="project.link_project"
                     :link_website="project.link_website" :description="project.description"
-                    :technologies="project.technologies" :slug="project.slug" />
+                    :technologies="project.technologies" :slug="project.slug" :title="project.title"/>
             </div>
             <p v-else class="text-center">No projects found</p>
             <div v-if="projects" class="d-flex justify-content-center py-3">
