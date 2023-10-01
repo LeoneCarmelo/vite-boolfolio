@@ -41,7 +41,7 @@ export default {
                         <h1 class=" ms-2 p-0 p-lg-2">{{ title }}</h1>
                         <h2 class="fw-bolder p-0 p-lg-2 align-self-end me-1">View more</h2>
                     </div>
-                    <div class="card-img-top rounded-1 h-85 w-85 text-center mx-auto">
+                    <div class="card-img-top rounded-1 h-75 w-75 text-center mx-auto">
                         <img :src="image" alt="" class="img-fluid rounded-1 h-100" loading="lazy">
                     </div>
                 </div>
@@ -54,6 +54,10 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/general.scss';
 @use '../styles/variables' as *;
+
+.cont {
+    background-color: linear-gradient($second-8, $first-4);
+}
 
 a {
 
@@ -120,6 +124,10 @@ a {
     .card:hover h2 {
         animation: slideToLeft 1s ease .5s 1 normal forwards;
     }
+
+/*     .card-img-top img {
+        clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    } */
 }
 
 

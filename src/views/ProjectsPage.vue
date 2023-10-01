@@ -3,12 +3,14 @@ import { store } from '../store'
 import axios from 'axios';
 import CardProject from '../components/CardProject.vue';
 import AppHeader from '../components/AppHeader.vue';
+import NaviGate from '../components/NaviGate.vue';
 
 export default {
     name: 'ProjectsPage',
     components: {
         CardProject,
         AppHeader,
+        NaviGate
     },
     data() {
         return {
@@ -47,7 +49,8 @@ export default {
         
 <template>
     <div class="cont">
-        <AppHeader />
+        <!-- <AppHeader /> -->
+        <NaviGate />
         <div class="container">
             <div class="row  g-3 mt-5" v-if="projects">
                 <CardProject v-for="project in projects" :key="project.id"

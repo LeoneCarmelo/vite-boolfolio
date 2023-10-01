@@ -12,11 +12,11 @@
 }
 
 .bg_first {
-    background-color: $first !important;
+    background-color: $first-4 !important;
 }
 
 .bg_second {
-    background-color: $second !important;
+    background-color: $second-8 !important;
 }
 
 .bg_third {
@@ -24,7 +24,11 @@
 }
 
 .text-first {
-    color:$first !important;
+    color:$first-4 !important;
+}
+
+.text-second {
+    color:$second-8 !important;
 }
 
 .text-third {
@@ -33,6 +37,21 @@
 
 .text-fourth {
     color:$fourth !important;
+}
+
+.color-blue-logo {
+    background: linear-gradient(to right, $first-1, $first-2, $first-3, $first-4, $first-5, $first-6, $first-7, $first-8);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.color-orange-logo {
+    background: linear-gradient(to right, $second-1, $second-2, $second-3, $second-4, $second-5, $second-6, $second-7, $second-8, $second-9, $second-10);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.w-30 {
+    width:30%;
 }
 
 .w-85 {
@@ -46,4 +65,6 @@
 .top-10 {
     top:-15px;
 }
+
+
 

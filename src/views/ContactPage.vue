@@ -2,6 +2,7 @@
 import AppHeader from '../components/AppHeader.vue';
 import axios from 'axios';
 import { store } from '../store';
+import NaviGate from '../components/NaviGate.vue';
 export default {
   name: "ContactPage",
   data() {
@@ -15,7 +16,7 @@ export default {
       errors: {}
     };
   },
-  components: { AppHeader },
+  components: { AppHeader, NaviGate },
   methods: {
     sendForm() {
       this.loading = true;
@@ -49,7 +50,8 @@ export default {
         
 <template>
   <div class="cont">
-    <AppHeader />
+    <!-- <AppHeader /> -->
+    <NaviGate />
     <div class="container">
       <div class="row">
         <div v-if="success" class="alert alert-success mt-4 w-75 mx-auto text-center" role="alert">

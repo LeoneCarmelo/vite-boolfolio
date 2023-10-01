@@ -26,6 +26,6 @@ export default {
     transition: color 0.8s ease;
 }
 .go-back:hover .fa-solid {
-    color: $second !important;
+    color: $second-8 !important;
 }
 </style>

@@ -2,6 +2,7 @@
 import AppHeader from '../components/AppHeader.vue';
 import axios from 'axios';
 import { store } from '../store';
+import NaviGate from '../components/NaviGate.vue';
 
 export default {
     name: "AboutPage",
@@ -11,7 +12,7 @@ export default {
             documents:null
         };
     },
-    components: { AppHeader },
+    components: { AppHeader, NaviGate },
     methods: {
         callAPI(url) { //endpoint projects
             axios
@@ -34,7 +35,8 @@ export default {
         
 <template>
     <div class="cont">
-        <AppHeader/>
+      <!--   <AppHeader/> -->
+      <NaviGate />
         <div class="container">
             <div class="row flex-column align-items-center mt-5">
                 <div class="col">

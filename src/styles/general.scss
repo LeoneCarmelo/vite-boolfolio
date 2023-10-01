@@ -1,36 +1,37 @@
 @use './variables' as *;
 // Import all of Bootstrap's CSS
 @import "/node_modules/bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Noto+Sans:wght@400;600;700;800&family=Outfit:wght@400;700&family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Noto+Sans:wght@400;600;700;800&family=Outfit:wght@400;700&family=Roboto+Condensed:wght@300;400;600;700;800&display=swap');
 
 body {
     font-family: 'Comforter', cursive;
     font-family: 'Noto Sans', sans-serif;
     font-family: 'Outfit', sans-serif;
     font-family: 'Roboto Condensed', sans-serif;
-    background: $third;//third was before
+    background: $fourth; //#eeeeee
 }
 
 
 h1 {
-    color: $fourth;
+    color: $first-3;
 
     span {
-        color: $second;
-        animation: change-color 5s ease 3s infinite alternate;
+        color: $first-3;
+        animation: change-color 5s ease 3s forwards;
     }
 
     @keyframes change-color {
         0% {
-            color: $second;
+            color: $first-3;
         }
 
         50% {
-            color: $second;
+            color: $first-3;
         }
 
         100% {
-            color: $first;
+            color: $second-3;
         }
     }
+
 }

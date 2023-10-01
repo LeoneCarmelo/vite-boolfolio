@@ -1,50 +1,57 @@
 <script>
 export default {
-    name: 'NaviGate'
+    name: 'NaviGate',
 }
 </script>
         
 <template>
-    <nav class="navbar navbar-expand bg-transparent p-0">
-        <div class="container-fluid w-100 h-100 p-0">
+    <nav class="navbar navbar-expand-lg bg-white p-0">
+        <div class="container-fluid p-0">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse w-100 h-100" id="navbarNav">
-                <ul class="navbar-nav w-100 h-100 position-relative">
-                    <li class="w-25 h-25">
-                        <router-link to="/" class="nav-link d-flex justify-content-start align-items-start w-100 h-100">
-                            <div class="p-2">
-                                <i class="fa-solid ps-2 fa-house-chimney fs-1"
-                                    :class="$route.path === '/' ? '' : 'fa-beat'"></i>
-                                <span class="px-2 fs-1 fw-semibold d-none d-xl-inline">Home</span>
-                            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-around">
+                    <li class="nav-item d-flex justify-content-center align-items-center">
+                        <router-link to="/" class="nav-link" :class="$route.path === '/' ? 'active' : ''">
+                            <div class="up" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
+                            <div class="left" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
+                            <span :class="$route.path === '/' ? 'color-blue-logo' : 'color-orange-logo'">Home</span>
+                            <div class="right" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
+                            <div class="down" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
                         </router-link>
                     </li>
-                    <li class="w-25 h-25">
-                        <router-link to="/projects"
-                            class="nav-link d-flex justify-content-end align-items-start w-100 h-100">
-                            <div class="p-2">
-                                <span class="px-2 fs-1 fw-semibold d-none d-xl-inline">Projects</span>
-                                <i class="fa-solid ps-2 fa-folder-open fs-1 fa-beat"></i>
-                            </div>
+                    <li class="nav-item d-flex justify-content-center align-items-center">
+                        <router-link to="/projects" class="nav-link" :class="$route.path === '/projects' ? 'active' : ''">
+                            <div class="up" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
+                            <div class="left" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
+                            <span
+                                :class="$route.path === '/projects' ? 'color-blue-logo' : 'color-orange-logo'">Projects</span>
+                            <div class="right" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
+                            <div class="down" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
                         </router-link>
                     </li>
-                    <li class="w-25 h-25">
-                        <router-link to="/about" class="nav-link d-flex justify-content-start align-items-end w-100 h-100">
-                            <div class="p-2">
-                                <i class="fa-solid ps-2 fa-info fs-1 fa-beat"></i>
-                                <span class="px-2 fs-1 fw-semibold d-none d-xl-inline">About</span>
-                            </div>
+                    <li class="nav-item text-center logo">
+                        <img src="logo.png" alt="" class="w-30">
+                    </li>
+                    <li class="nav-item d-flex justify-content-center align-items-center">
+                        <router-link to="/about" class="nav-link" :class="$route.path === '/about' ? 'active' : ''">
+                            <div class="up" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
+                            <div class="left" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
+                            <span :class="$route.path === '/about' ? 'color-blue-logo' : 'color-orange-logo'">About</span>
+                            <div class="right" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
+                            <div class="down" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
                         </router-link>
                     </li>
-                    <li class="w-25 h-25">
-                        <router-link to="/contact" class="nav-link d-flex justify-content-end align-items-end w-100 h-100">
-                            <div class="p-2">
-                                <span class="px-2 fs-1 fw-semibold d-none d-xl-inline">Contact</span>
-                                <i class="fa-solid ps-2 fa-user-tie fs-1 fa-beat"></i>
-                            </div>
+                    <li class="nav-item d-flex justify-content-center align-items-center">
+                        <router-link to="/contact" class="nav-link" :class="$route.path === '/contact' ? 'active' : ''">
+                            <div class="up" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
+                            <div class="left" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
+                            <span
+                                :class="$route.path === '/contact' ? 'color-blue-logo' : 'color-orange-logo'">Contact</span>
+                                <div class="right" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
+                            <div class="down" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
                         </router-link>
                     </li>
                 </ul>
@@ -60,74 +67,33 @@ export default {
 @use '../styles/common' as *;
 
 .navbar {
-    position: absolute;
-    z-index: 2;
-    height: 100vh;
+    position: sticky; //era absolute
+    top: 0;
+    left: 0;
+    z-index: 1;
+    //height: 100vh;
 
     li {
-        position: absolute;
-        background-color: $first;
-        div.p-2 {
-                   transform: translate(0);
-                   transition:transform 0.47s ease;
+        //position: absolute;
+        width: calc(100% / 5);
+        border-right: 3px solid $first-3;
+        border-bottom: 3px solid $first-3;
+        border-style: inset;
+        background-color: $fourth;
+        transition: all 0.2s ease-in-out;
+
+        &:hover:not(.logo) {
+            border-right: 3px solid $second-3;
+            border-bottom: 3px solid $second-3;
         }
     }
-    
-    li:nth-child(1) {
-        top: 0;
-        left: 0;
-        border-bottom-right-radius: 100%;
-        transition: all 0.5s ease-in-out;
 
-        &:hover {
-            border-bottom-right-radius: 0;
 
-            div.p-2 {
-            transform: translate(40%, 50%);
-            }
-        }
-
-    }
-
-    li:nth-child(2) {
-        top: 0;
-        right: 0;
-        border-bottom-left-radius: 100%;
-        transition: border-bottom-left-radius 0.5s ease-in-out;
-
-        &:hover {
-            border-bottom-left-radius: 0;
-            div.p-2 {
-            transform: translate(-20%, 50%);
-            }
-        }
-    }
 
     li:nth-child(3) {
-        bottom: 0;
-        left: 0;
-        border-top-right-radius: 100%;
-        transition: border-top-right-radius 0.5s ease-in-out;
-
         &:hover {
-            border-top-right-radius: 0;
-            div.p-2 {
-            transform: translate(50%, -50%);
-            }
-        }
-    }
-
-    li:nth-child(4) {
-        bottom: 0;
-        right: 0;
-        border-top-left-radius: 100%;
-        transition: border-top-left-radius 0.5s ease-in-out;
-
-        &:hover {
-            border-top-left-radius: 0;
-            div.p-2 {
-            transform: translate(-30%, -50%);
-            }
+            border-bottom: 3px solid $second-3;
+            //border-top-right-radius: 0;
         }
     }
 
@@ -138,9 +104,51 @@ export default {
         font-weight: semibold;
         letter-spacing: 5px;
         padding: 0 !important;
+        position: relative;
+    }
+
+    .nav-link span {
+        padding: 10px 20px;
+    }
+    
+    .active {
+        border: 3px solid #ff9f40;
     }
 
 
+    .down {
+        height: 3px;
+        position: relative;
+        background-color: $fourth;
+        bottom: -3px;
+        width: 90%;
+        margin-left: auto;
+    }
 
+    .up {
+        height: 3px;
+        position: relative;
+        background-color: $fourth;
+        top: -3px;
+        width: 90%;
+    }
+
+    .left {
+        position: absolute;
+        height: 80%;
+        background-color: $fourth;
+        width: 3px;
+        top: -5px;
+        left: -3px;
+    }
+
+    .right {
+        position: absolute;
+        height: 80%;
+        background-color: $fourth;
+        width: 3px;
+        bottom: -5px;
+        right: -3px;
+    }
 }
 </style>

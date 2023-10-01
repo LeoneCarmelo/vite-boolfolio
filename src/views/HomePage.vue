@@ -86,8 +86,7 @@ export default {
     top: 0;
 
     h1 {
-        animation-name: slidein;
-        animation-duration: 1.5s;
+        animation-name: slidein 1.5s;
     }
 }
 
