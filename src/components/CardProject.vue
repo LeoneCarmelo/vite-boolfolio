@@ -32,22 +32,22 @@ export default {
 
 <template>
     <!-- fs-md-5 su h2 fs-lg-3 -->
-    <div class="cont rounded-1 p-2 p-lg-4 mb-5">
-        <div class="col rounded-1 h-100 p-3 p-lg-4 bg_first">
-            <router-link :to="{ name: 'project', params: { 'slug': slug } }">
-                <div id="card"
-                    class="card h-100 position-relative border-0 rounded-1 p-2 p-lg-4 bg_third justify-content-center">
-                    <div class="overlay_card rounded-1">
-                        <h1 class=" ms-2 p-0 p-lg-2">{{ title }}</h1>
-                        <h2 class="fw-bolder p-0 p-lg-2 align-self-end me-1">View more</h2>
-                    </div>
-                    <div class="card-img-top rounded-1 h-75 w-75 text-center mx-auto">
-                        <img :src="image" alt="" class="img-fluid rounded-1 h-100" loading="lazy">
-                    </div>
+    <!--     <div class="cont rounded-1 p-2 p-lg-4 mb-5"> -->
+    <div class="col rounded-1 h-100 mb-5">
+        <router-link :to="{ name: 'project', params: { 'slug': slug } }">
+            <div id="card"
+                class="card h-100 position-relative w-85 mx-auto border-0 rounded-1 bg_transparent justify-content-center">
+                <div class="overlay_card rounded-1">
+                    <h1 class="ms-2 color-orange-logo">{{ title }}</h1>
+                    <h2 class="fw-bolder align-self-end me-1 color-blue-logo">View more</h2>
                 </div>
-            </router-link>
-        </div>
+                <div class="card-img-top rounded-1 h-75 w-85 text-center mx-auto">
+                    <img :src="image" alt="" class="w-85 object-fit-cover rounded-1 h-100" loading="lazy">
+                </div>
+            </div>
+        </router-link>
     </div>
+    <!--     </div> -->
 </template>
 
 
@@ -55,8 +55,14 @@ export default {
 @use '../styles/general.scss';
 @use '../styles/variables' as *;
 
-.cont {
+/* .cont {
     background-color: linear-gradient($second-8, $first-4);
+} */
+
+
+.col img {
+    box-shadow: 1px 1px 3px $second-3,
+                -1px -1px 3px $second-3;
 }
 
 a {
@@ -65,13 +71,16 @@ a {
         position: absolute;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
         height: 100%;
-        width: 100%;
-        background-color: $dark-20;
+        width: 85%;
+        background-color: $dark-60;
         opacity: 0; //ricambiare a 0
         display: flex;
         justify-content: space-between;
         transition: opacity 0.8s ease;
+        margin: 0 auto;
 
         h1,
         h2 {
@@ -125,9 +134,10 @@ a {
         animation: slideToLeft 1s ease .5s 1 normal forwards;
     }
 
-/*     .card-img-top img {
+    /*     .card-img-top img {
         clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
     } */
+
 }
 
 
@@ -162,5 +172,4 @@ h2 {
     h2 {
         font-size: calc(1.3rem + 0.6vw) !important;
     }
-}
-</style>
+}</style>

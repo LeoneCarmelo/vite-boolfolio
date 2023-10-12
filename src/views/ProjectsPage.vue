@@ -52,7 +52,7 @@ export default {
         <!-- <AppHeader /> -->
         <NaviGate />
         <div class="container">
-            <div class="row  g-3 mt-5" v-if="projects">
+            <div class="row row-cols-2 g-3 mt-5" v-if="projects">
                 <CardProject v-for="project in projects" :key="project.id"
                     :image="`${store.base_url}storage/${project.image}`" :link_project="project.link_project"
                     :link_website="project.link_website" :description="project.description"
@@ -62,14 +62,16 @@ export default {
             <div v-if="projects" class="d-flex justify-content-center py-3">
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
-                        <li class="page-item">
-                            <button class="page-link" aria-label="Previous" @click="prev(pages)">
-                                <span aria-hidden="true">&laquo;</span>
+                        <li class="page-item d-flex justify-content-end">
+                            <button class="page-link w-15 border-0" aria-label="Previous" @click="prev(pages)">
+                                <!-- <span aria-hidden="true">&laquo;</span> -->
+                                <img src="arrow-1.png" alt="" class="img-fluid left">
                             </button>
                         </li>
                         <li class="page-item">
-                            <button class="page-link" aria-label="Next" @click="next(pages)">
-                                <span aria-hidden="true">&raquo;</span>
+                            <button class="page-link w-15 border-0" aria-label="Next" @click="next(pages)">
+                                <!-- <span aria-hidden="true">&raquo;</span> -->
+                                <img src="arrow-1.png" alt="" class="img-fluid">
                             </button>
                         </li>
                     </ul>
@@ -80,4 +82,28 @@ export default {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '../styles/general.scss';
+@use '../styles/variables' as *;
+@use '../styles/common' as *;
+
+
+.pagination {
+    gap:2.5rem;
+
+    .page-link {
+        background-color: transparent;
+        outline:revert;
+        box-shadow:0px 0px 4px $first-3;
+        &:hover {
+            box-shadow:0px 0px 4px $second-3;
+        }
+        
+        .left {
+            rotate:-180deg;
+
+        }
+    }
+}
+
+</style>

@@ -5,7 +5,7 @@ export default {
 </script>
         
 <template>
-    <nav class="navbar navbar-expand-lg bg-white p-0">
+    <nav class="navbar navbar-expand-md bg-white p-0">
         <div class="container-fluid p-0">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,45 +13,45 @@ export default {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav w-100 justify-content-around">
-                    <li class="nav-item d-flex justify-content-center align-items-center">
-                        <router-link to="/" class="nav-link" :class="$route.path === '/' ? 'active' : ''">
-                            <div class="up" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
-                            <div class="left" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
+                    <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/' ? 'active' : ''">
+                        <router-link to="/" class="nav-link">
+                 <!--            <div class="up" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
+                            <div class="left" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div> -->
                             <span :class="$route.path === '/' ? 'color-blue-logo' : 'color-orange-logo'">Home</span>
-                            <div class="right" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
-                            <div class="down" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
+                 <!--            <div class="right" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
+                            <div class="down" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div> -->
                         </router-link>
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center">
-                        <router-link to="/projects" class="nav-link" :class="$route.path === '/projects' ? 'active' : ''">
-                            <div class="up" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
-                            <div class="left" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
+                    <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/projects' ? 'active' : ''">
+                        <router-link to="/projects" class="nav-link">
+                       <!--      <div class="up" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
+                            <div class="left" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div> -->
                             <span
                                 :class="$route.path === '/projects' ? 'color-blue-logo' : 'color-orange-logo'">Projects</span>
-                            <div class="right" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
-                            <div class="down" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
+                           <!--  <div class="right" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
+                            <div class="down" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div> -->
                         </router-link>
                     </li>
                     <li class="nav-item text-center logo">
                         <img src="logo.png" alt="" class="w-30">
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center">
-                        <router-link to="/about" class="nav-link" :class="$route.path === '/about' ? 'active' : ''">
-                            <div class="up" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
-                            <div class="left" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
+                    <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/about' ? 'active' : ''">
+                        <router-link to="/about" class="nav-link">
+                            <!-- <div class="up" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
+                            <div class="left" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div> -->
                             <span :class="$route.path === '/about' ? 'color-blue-logo' : 'color-orange-logo'">About</span>
-                            <div class="right" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
-                            <div class="down" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
+                           <!--  <div class="right" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
+                            <div class="down" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div> -->
                         </router-link>
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center">
-                        <router-link to="/contact" class="nav-link" :class="$route.path === '/contact' ? 'active' : ''">
-                            <div class="up" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
-                            <div class="left" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
+                    <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/contact' ? 'active' : ''">
+                        <router-link to="/contact" class="nav-link">
+                       <!--      <div class="up" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
+                            <div class="left" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div> -->
                             <span
                                 :class="$route.path === '/contact' ? 'color-blue-logo' : 'color-orange-logo'">Contact</span>
-                                <div class="right" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
-                            <div class="down" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
+                      <!--           <div class="right" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
+                            <div class="down" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div> -->
                         </router-link>
                     </li>
                 </ul>
@@ -79,12 +79,13 @@ export default {
         border-right: 3px solid $first-3;
         border-bottom: 3px solid $first-3;
         border-style: inset;
-        background-color: $fourth;
+        background-color:$fourth;
         transition: all 0.2s ease-in-out;
 
         &:hover:not(.logo) {
-            border-right: 3px solid $second-3;
-            border-bottom: 3px solid $second-3;
+            //border-right: 3px solid $second-3;
+            //border-bottom: 3px solid $second-3;
+            border-top: 3px solid $second-3;
         }
     }
 
@@ -108,11 +109,17 @@ export default {
     }
 
     .nav-link span {
-        padding: 10px 20px;
+        padding: 0px 5px;
     }
     
     .active {
-        border: 3px solid #ff9f40;
+        border-top: 3px solid $second-7;
+        //border-left: 3px solid $second-3;
+        //border-top: 3px solid  $second-3;
+        border-bottom: 3px solid  $second-3;
+        //border-right:3px solid $second-3;
+
+
     }
 
 
