@@ -10,28 +10,3 @@ body {
     //font-family: 'Roboto Condensed', sans-serif;
     background: $fourth; //#eeeeee
 }
-
-
-h1 {
-    color: $first-3;
-
-    span {
-        color: $first-3;
-        animation: change-color 5s ease 3s forwards;
-    }
-
-    @keyframes change-color {
-        0% {
-            color: $first-3;
-        }
-
-        50% {
-            color: $first-3;
-        }
-
-        100% {
-            color: $second-10;
-        }
-    }
-
-}

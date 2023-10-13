@@ -21,7 +21,7 @@ export default {
     mounted() {
         let textWrapper = document.getElementById('ml3');
         textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-        
+
         anime.timeline({ loop: false })
             .add({
                 targets: '#ml3 .letter',
@@ -36,8 +36,8 @@ export default {
                 easing: "easeOutExpo",
                 delay: 1000
             });
-            //console.log(anime)
-        }
+        //console.log(anime)
+    }
 
 }
 </script>
@@ -66,14 +66,9 @@ export default {
 @use '../styles/common' as *;
 
 .cont {
-    /*     background-image: url('lion4.png'), linear-gradient(to right, rgb(201, 174, 0), rgb(162, 0, 22));
-    background-repeat: no-repeat, no-repeat;
-    background-position: right, center;
-    background-size: contain; */
     height: 100vh;
     width: 100%;
     position: relative;
-
 }
 
 .container-name {
@@ -87,19 +82,40 @@ export default {
 
     h1 {
         animation-name: slidein 1.5s;
+        color: $first-3;
+        span {
+            font-family: 'Comforter', cursive;
+            color: $first-3;
+            animation: change-color 5s ease 3s forwards;
+        }
+        
+        @keyframes change-color {
+            0% {
+                color: $first-3;
+            }
+        
+            50% {
+                color: $first-3;
+            }
+        
+            100% {
+                color: $second-10;
+            }
+        }
     }
 }
 
-span {
-    font-family: 'Comforter', cursive;
-    font-size: 7rem;
-}
 
 #ml3 {
-  font-weight: 900;
-  font-size: 3.5em;
+    font-weight: 900;
+    font-size: 5rem;
 }
 
+@media screen and (min-width:768px) {
+    #ml3{
+        font-size:7rem;
+    }
+}
 
 
 @keyframes slidein {
