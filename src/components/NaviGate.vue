@@ -5,34 +5,39 @@ export default {
 </script>
         
 <template>
-    <nav class="navbar navbar-expand-md bg-white p-0">
+    <nav class="navbar navbar-expand-md p-0">
         <div class="container-fluid p-0">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler m-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <img src="logo.png" alt="logo" loading="lazy" style="width:50px; height:50px; object-position: cover;">
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav w-100 justify-content-around">
-                    <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/' ? 'active' : ''">
+                <ul class="navbar-nav justify-content-center ms-3 ms-md-0  gap-2 gap-md-0 flex-wrap">
+                    <li class="nav-item d-flex justify-content-center align-items-center"
+                        :class="$route.path === '/' ? 'active' : ''">
                         <router-link to="/" class="nav-link">
                             <span :class="$route.path === '/' ? 'color-blue-logo' : 'color-orange-logo'">Home</span>
                         </router-link>
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/projects' ? 'active' : ''">
+                    <li class="nav-item d-flex justify-content-center align-items-center"
+                        :class="$route.path === '/projects' ? 'active' : ''">
                         <router-link to="/projects" class="nav-link">
                             <span
                                 :class="$route.path === '/projects' ? 'color-blue-logo' : 'color-orange-logo'">Projects</span>
                         </router-link>
                     </li>
-                    <li class="nav-item text-center logo">
+                    <li class="nav-item text-center logo d-none d-md-block">
                         <img src="logo.png" alt="" class="w-30" loading="lazy">
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/about' ? 'active' : ''">
+                    <li class="nav-item d-flex justify-content-center align-items-center"
+                        :class="$route.path === '/about' ? 'active' : ''">
                         <router-link to="/about" class="nav-link">
                             <span :class="$route.path === '/about' ? 'color-blue-logo' : 'color-orange-logo'">About</span>
                         </router-link>
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/contact' ? 'active' : ''">
+                    <li class="nav-item d-flex justify-content-center align-items-center"
+                        :class="$route.path === '/contact' ? 'active' : ''">
                         <router-link to="/contact" class="nav-link">
                             <span
                                 :class="$route.path === '/contact' ? 'color-blue-logo' : 'color-orange-logo'">Contact</span>
@@ -50,26 +55,38 @@ export default {
 @use '../styles/variables' as *;
 @use '../styles/common' as *;
 
+.navbar-toggler {
+    box-shadow: 0 0 3px $first-3;
+    border: 0;
+    outline: 0;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-visible {
+        box-shadow: 0 0 3px $second-3;
+    }
+
+}
+
 .navbar {
-    position: sticky; //era absolute
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 1;
-    //height: 100vh;
+
+    ul {
+        flex-direction:row;
+        flex-wrap:wrap;
+    }
 
     li {
-        //position: absolute;
-        width: calc(100% / 5);
-        border-right: 3px solid $first-3;
-        border-bottom: 3px solid $first-3;
-        border-style: inset;
-        background-color:$fourth;
+        left: 100px;
+        background-color: $fourth;
         transition: all 0.2s ease-in-out;
 
         &:hover:not(.logo) {
-            //border-right: 3px solid $second-3;
-            //border-bottom: 3px solid $second-3;
-            border-top: 3px solid $second-3;
+            box-shadow: 0 0 3px $first-3;
         }
     }
 
@@ -78,13 +95,11 @@ export default {
     li:nth-child(3) {
         &:hover {
             border-bottom: 3px solid $second-3;
-            //border-top-right-radius: 0;
         }
     }
 
     .nav-link {
         text-decoration: none;
-        color: $third;
         font-size: 2rem;
         font-weight: semibold;
         letter-spacing: 5px;
@@ -95,51 +110,25 @@ export default {
     .nav-link span {
         padding: 0px 5px;
     }
-    
+
+}
+
+@media screen and (min-width:768px) {
+    li {
+        width: calc(100% / 5);
+        border-right: 3px solid $first-3;
+        border-bottom: 3px solid $first-3;
+        border-style: inset;
+        background-color: $fourth;
+        transition: all 0.2s ease-in-out;
+
+        &:hover:not(.logo) {
+            box-shadow: none !important;
+            border-top: 3px solid $second-3;
+        }
+    }
     .active {
         border-top: 3px solid $second-7;
-        //border-left: 3px solid $second-3;
-        //border-top: 3px solid  $second-3;
-        border-bottom: 3px solid  $second-3;
-        //border-right:3px solid $second-3;
-
-
+        border-bottom: 3px solid $second-3 !important;
     }
-
-
-    .down {
-        height: 3px;
-        position: relative;
-        background-color: $fourth;
-        bottom: -3px;
-        width: 90%;
-        margin-left: auto;
-    }
-
-    .up {
-        height: 3px;
-        position: relative;
-        background-color: $fourth;
-        top: -3px;
-        width: 90%;
-    }
-
-    .left {
-        position: absolute;
-        height: 80%;
-        background-color: $fourth;
-        width: 3px;
-        top: -5px;
-        left: -3px;
-    }
-
-    .right {
-        position: absolute;
-        height: 80%;
-        background-color: $fourth;
-        width: 3px;
-        bottom: -5px;
-        right: -3px;
-    }
-}
-</style>
+}</style>
