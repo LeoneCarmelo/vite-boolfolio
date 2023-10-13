@@ -71,7 +71,7 @@ export default {
                         <li class="page-item">
                             <button class="page-link w-15 border-0" aria-label="Next" @click="next(pages)">
                                 <!-- <span aria-hidden="true">&raquo;</span> -->
-                                <img src="arrow-1.png" alt="" class="img-fluid">
+                                <img src="arrow-1.png" alt="" class="img-fluid" loading="lazy">
                             </button>
                         </li>
                     </ul>

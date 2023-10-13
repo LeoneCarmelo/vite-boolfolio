@@ -20,12 +20,12 @@ export default {
   mounted() {
     const send = document.querySelector('button[type="submit"]')
     send.addEventListener('mouseenter', () => {
-        send.classList.remove('color-blue-logo')
-        send.classList.add('color-orange-logo')
+      send.classList.remove('color-blue-logo')
+      send.classList.add('color-orange-logo')
     })
     send.addEventListener('mouseleave', () => {
-        send.classList.remove('color-orange-logo')
-        send.classList.add('color-blue-logo')
+      send.classList.remove('color-orange-logo')
+      send.classList.add('color-blue-logo')
     })
   },
   methods: {
@@ -64,36 +64,40 @@ export default {
     <!-- <AppHeader /> -->
     <NaviGate />
     <div class="container">
-      <div class="row">
-        <div class="col py-5 text-center">
-          <h2 class="color-blue-logo">Let's build something, <span class="color-orange-logo">Together!</span></h2>
-          <h3 class="color-blue-logo mt-5 fs-2 mb-3">Contacts</h3>
-          <i class="color-orange-logo fs-5">carmeloleone@outlook.it</i>
-          <ul class="my-4 list-unstyled">
-            <li class="d-inline">
-              <a href="https://github.com/LeoneCarmelo" class="text-decoration-none">
-                <i class="fa-brands color-blue-logo fa-github fs-3"></i>
-              </a>
-            </li>
-            <li class="d-inline">
-              <a href="https://www.linkedin.com/in/leonecarmelo/" class="text-decoration-none">
-                <i class="fa-brands color-blue-logo fa-linkedin fs-3 mx-4"></i>
-              </a>
-            </li>
-            <li class="d-inline">
-              <!-- inserire link facebook profile -->
-              <a href="" class="text-decoration-none">
-                <i class="fa-brands color-blue-logo fa-facebook fs-3"></i>
-              </a>
-            </li>
-          </ul>
+      <div class="row row-cols-1 row-cols-md-2 mt-5">
+        <div class="col text-center">
+          <div class="advertise my-auto">
+            <h2 class="color-blue-logo mb-4 mb-md-0">Let's build something, <span class="color-orange-logo">Together!</span></h2>
+            <div class="contacts d-none d-md-block">
+              <h3 class="color-blue-logo mt-5 fs-2 mb-3">Contacts</h3>
+              <i class="color-orange-logo fs-5">carmeloleone@outlook.it</i>
+              <ul class="my-4 list-unstyled">
+                <li class="d-inline">
+                  <a href="https://github.com/LeoneCarmelo" class="text-decoration-none">
+                    <i class="fa-brands color-blue-logo fa-github fs-3"></i>
+                  </a>
+                </li>
+                <li class="d-inline">
+                  <a href="https://www.linkedin.com/in/leonecarmelo/" class="text-decoration-none">
+                    <i class="fa-brands color-blue-logo fa-linkedin fs-3 mx-4"></i>
+                  </a>
+                </li>
+                <li class="d-inline">
+                  <!-- inserire link facebook profile -->
+                  <a href="" class="text-decoration-none">
+                    <i class="fa-brands color-blue-logo fa-facebook fs-3"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="col px-3">
           <div v-if="success" class="alert alert-success mt-4 w-75 mx-auto text-center" role="alert">
             <strong>Message Received!</strong> We will answer you as soon as possible.
           </div>
 
-          <form @submit.prevent="sendForm()" class="py-5 d-flex flex-column">
+          <form @submit.prevent="sendForm()" class="d-flex flex-column">
             <div class="mb-3">
               <label for="name" class="form-label color-blue-logo fs-3">Name</label>
               <input v-model="name" type="text" name="name" id="name" class="form-control" placeholder="Ex: John Smith"
@@ -120,11 +124,35 @@ export default {
                 {{ error }}
               </p>
             </div>
-            <button type="submit" class="btn color-blue-logo fs-2 text-uppercase w-25 align-self-end mt-2 fw-bold"
+            <button type="submit" class="btn color-blue-logo fs-2 text-uppercase align-self-end mt-1 fw-bold"
               :disabled="loading">{{ loading ?
                 'Sending...' : 'Send'
               }}</button>
           </form>
+        </div>
+        <div class="col text-center d-md-none">
+          <div class="advertise my-auto">
+            <h3 class="color-blue-logo mt-5 fs-2 mb-3">Contacts</h3>
+            <i class="color-orange-logo fs-5">carmeloleone@outlook.it</i>
+            <ul class="my-4 list-unstyled">
+              <li class="d-inline">
+                <a href="https://github.com/LeoneCarmelo" class="text-decoration-none">
+                  <i class="fa-brands color-blue-logo fa-github fs-3"></i>
+                </a>
+              </li>
+              <li class="d-inline">
+                <a href="https://www.linkedin.com/in/leonecarmelo/" class="text-decoration-none">
+                  <i class="fa-brands color-blue-logo fa-linkedin fs-3 mx-4"></i>
+                </a>
+              </li>
+              <li class="d-inline">
+                <!-- inserire link facebook profile -->
+                <a href="" class="text-decoration-none">
+                  <i class="fa-brands color-blue-logo fa-facebook fs-3"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -138,10 +166,38 @@ export default {
 @use '../styles/common' as *;
 
 h2 {
-  font-size: 3.5rem;
+  font-size: 1.5rem;
 
   span {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 404px) {
+  h2 {
+    font-size: 2.5rem;
+    span{
+      font-size:3rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h2 {
+    font-size: 3rem;
+
+    span {
+      font-size: 3.5rem;
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  h2 {
     font-size: 3.5rem;
+
+    span {
+      font-size: 3.5rem;
+    }
   }
 }
 
@@ -181,5 +237,4 @@ input {
 
 textarea {
   border-bottom: 3px solid $first-3 !important;
-}
-</style>
+}</style>

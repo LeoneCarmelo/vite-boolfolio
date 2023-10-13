@@ -15,43 +15,27 @@ export default {
                 <ul class="navbar-nav w-100 justify-content-around">
                     <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/' ? 'active' : ''">
                         <router-link to="/" class="nav-link">
-                 <!--            <div class="up" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
-                            <div class="left" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div> -->
                             <span :class="$route.path === '/' ? 'color-blue-logo' : 'color-orange-logo'">Home</span>
-                 <!--            <div class="right" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div>
-                            <div class="down" :class="$route.path === '/' ? 'd-block' : 'd-none'"></div> -->
                         </router-link>
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/projects' ? 'active' : ''">
                         <router-link to="/projects" class="nav-link">
-                       <!--      <div class="up" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
-                            <div class="left" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div> -->
                             <span
                                 :class="$route.path === '/projects' ? 'color-blue-logo' : 'color-orange-logo'">Projects</span>
-                           <!--  <div class="right" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div>
-                            <div class="down" :class="$route.path === '/projects' ? 'd-block' : 'd-none'"></div> -->
                         </router-link>
                     </li>
                     <li class="nav-item text-center logo">
-                        <img src="logo.png" alt="" class="w-30">
+                        <img src="logo.png" alt="" class="w-30" loading="lazy">
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/about' ? 'active' : ''">
                         <router-link to="/about" class="nav-link">
-                            <!-- <div class="up" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
-                            <div class="left" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div> -->
                             <span :class="$route.path === '/about' ? 'color-blue-logo' : 'color-orange-logo'">About</span>
-                           <!--  <div class="right" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div>
-                            <div class="down" :class="$route.path === '/about' ? 'd-block' : 'd-none'"></div> -->
                         </router-link>
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center" :class="$route.path === '/contact' ? 'active' : ''">
                         <router-link to="/contact" class="nav-link">
-                       <!--      <div class="up" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
-                            <div class="left" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div> -->
                             <span
                                 :class="$route.path === '/contact' ? 'color-blue-logo' : 'color-orange-logo'">Contact</span>
-                      <!--           <div class="right" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div>
-                            <div class="down" :class="$route.path === '/contact' ? 'd-block' : 'd-none'"></div> -->
                         </router-link>
                     </li>
                 </ul>
