@@ -6,11 +6,11 @@ export default {
         
 <template>
     <nav class="navbar navbar-expand-md p-0">
-        <div class="container-fluid p-0">
+        <div class="container-fluid p-0 justify-content-center">
             <button class="navbar-toggler m-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <!-- <span class="navbar-toggler-icon"></span> -->
-                <img src="logo.png" alt="logo" loading="lazy" style="width:50px; height:50px; object-position: cover;">
+                <img src="logo.png" alt="logo" loading="lazy" style="width:50px; height:50px; object-fit: cover;">
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav justify-content-center ms-3 ms-md-0  gap-2 gap-md-0 flex-wrap">
