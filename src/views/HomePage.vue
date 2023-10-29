@@ -51,7 +51,7 @@ export default {
                 <div class="col text-center">
                     <h1>I'm <br>
                         <span id="ml3">{{ my_name }}</span>
-                        <br>Full Stack Developer based on the Netherlands.
+                        <br>Full Stack Developer based in the Netherlands.
                     </h1>
                 </div>
             </div>
