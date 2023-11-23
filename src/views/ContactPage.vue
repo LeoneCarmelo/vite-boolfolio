@@ -66,9 +66,9 @@ export default {
     <div class="container">
       <div class="row row-cols-1 row-cols-md-2 mt-5">
         <div class="col text-center">
-          <div class="advertise my-auto">
-            <h2 class="color-blue-logo mb-4 mb-md-0">Let's build something, <span class="color-orange-logo">Together!</span></h2>
-            <div class="contacts d-none d-md-block">
+          <transition-group class="advertise my-auto" tag="div" name="fade" mode="out-in">
+            <h2 class="color-blue-logo mb-4 mb-md-0 animate__animated animate__zoomIn" key="heading">Let's build something, <span class="color-orange-logo">Together!</span></h2>
+            <div class="contacts d-none d-md-block animate__animated animate__zoomInUp" key="contacts">
               <h3 class="color-blue-logo mt-5 fs-2 mb-3">Contacts</h3>
               <i class="color-orange-logo fs-5">carmeloleone@outlook.it</i>
               <ul class="my-4 list-unstyled">
@@ -90,15 +90,15 @@ export default {
                 </li>
               </ul>
             </div>
-          </div>
+          </transition-group>
         </div>
         <div class="col px-3">
           <div v-if="success" class="alert alert-success mt-4 w-75 mx-auto text-center" role="alert">
             <strong>Message Received!</strong> We will answer you as soon as possible.
           </div>
 
-          <form @submit.prevent="sendForm()" class="d-flex flex-column">
-            <div class="mb-3">
+          <transition-group @submit.prevent="sendForm()" class="d-flex flex-column" tag="form" name="fade" mode="in-out">
+            <div class="mb-3 animate__animated animate__backInRight" key="name" style="animation-delay: 0.25s;">
               <label for="name" class="form-label color-blue-logo fs-3">Name</label>
               <input v-model="name" type="text" name="name" id="name" class="form-control" placeholder="Ex: John Smith"
                 aria-describedby="helpIdname" :class="{ 'is-invalid': errors.name }">
@@ -107,7 +107,7 @@ export default {
                 {{ error }}
               </p>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 animate__animated animate__backInRight" key="email" style="animation-delay: 0.5s;">
               <label for="email" class="form-label color-blue-logo fs-3">Email</label>
               <input v-model="email" type="email" name="email" id="email" class="form-control"
                 placeholder="Ex: john@smith.com" aria-describedby="helpIdemail" :class="{ 'is-invalid': errors.email }">
@@ -116,7 +116,7 @@ export default {
                 {{ error }}
               </p>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 animate__animated animate__backInRight" key="message" style="animation-delay: 0.75s;">
               <label for="message" class="form-label color-blue-logo fs-3">Message</label>
               <textarea v-model="message" class="form-control" name="message" id="message" rows="5"
                 :class="{ 'is-invalid': errors.message }" placeholder="Hi, I want a website!!"></textarea>
@@ -124,11 +124,11 @@ export default {
                 {{ error }}
               </p>
             </div>
-            <button type="submit" class="btn color-blue-logo fs-2 text-uppercase align-self-end mt-1 fw-bold"
-              :disabled="loading">{{ loading ?
+            <button type="submit" class="btn color-blue-logo fs-2 text-uppercase align-self-end mt-1 fw-bold animate__animated animate__backInUp"
+              :disabled="loading" key="send" style="animation-delay: 1s;">{{ loading ?
                 'Sending...' : 'Send'
               }}</button>
-          </form>
+          </transition-group>
         </div>
         <div class="col text-center d-md-none">
           <div class="advertise my-auto">

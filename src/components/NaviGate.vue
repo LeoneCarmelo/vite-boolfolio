@@ -14,13 +14,13 @@ export default {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <transition-group class="navbar-nav justify-content-center ms-3 ms-md-0  gap-2 gap-md-0 flex-wrap" tag="ul" name="fade" mode="in-out">
-                    <li key="li" class="nav-item d-flex justify-content-center align-items-center"
+                    <li key="home" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/' ? 'active' : ''">
                         <router-link to="/" class="nav-link animate__animated animate__bounceInDown" style="animation-delay: 0.15s;">
                             <span :class="$route.path === '/' ? 'color-blue-logo' : 'color-orange-logo'">Home</span>
                         </router-link>
                     </li>
-                    <li key="li" class="nav-item d-flex justify-content-center align-items-center"
+                    <li key="projects" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/projects' ? 'active' : ''">
                         <router-link to="/projects" class="nav-link  animate__animated animate__bounceInDown" style="animation-delay: 0.30s;">
                             <span
@@ -28,15 +28,15 @@ export default {
                         </router-link>
                     </li>
                     <li class="nav-item text-center logo d-none d-md-block">
-                        <img key="img" src="logo.png" alt="" class="w-30 animate__animated animate__zoomIn" loading="lazy">
+                        <img key="logo" src="logo.png" alt="" class="w-30 animate__animated animate__zoomIn" loading="lazy">
                     </li>
-                    <li key="li" class="nav-item d-flex justify-content-center align-items-center"
+                    <li key="about" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/about' ? 'active' : ''">
                         <router-link to="/about" class="nav-link animate__animated animate__bounceInDown" style="animation-delay: 0.45s;">
                             <span :class="$route.path === '/about' ? 'color-blue-logo' : 'color-orange-logo'">About</span>
                         </router-link>
                     </li>
-                    <li key="li" class="nav-item d-flex justify-content-center align-items-center"
+                    <li key="contact" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/contact' ? 'active' : ''">
                         <router-link to="/contact" class="nav-link animate__animated animate__bounceInDown" style="animation-delay: 0.60s;">
                             <span
