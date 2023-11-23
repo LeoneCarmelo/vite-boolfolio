@@ -10,7 +10,8 @@ export default {
         description: String,
         technologies: Array,
         slug: String,
-        title: String
+        title: String,
+        id: Number
     },
     data() {
         return {
@@ -33,37 +34,36 @@ export default {
 </script>
 
 <template>
-    <div
-        class="col-12 mx-auto rounded-1 h-100 my-5 position-relative d-flex flex-column flex-lg-row gap-5 align-items-center">
-        <div class="description color-blue-logo order-3 order-lg-0">
+    <transition-group
+        class="col-12 mx-auto rounded-1 h-100 my-5 position-relative d-flex flex-column flex-lg-row gap-5 align-items-center"
+        tag="div" name="fade" mode="in-out">
+        <div key="description" class="description color-blue-logo order-3 order-lg-0 animate__animated animate__fadeInLeft">
             <h5 class="text-center fs-3 color-orange-logo mb-4">Description</h5>
             {{ description }}
         </div>
-        <router-link :to="{ name: 'project', params: { 'slug': slug } }"
-            class="w-50 text-decoration-none order-2 text-center d-flex flex-column gap-4">
+        <a key="project" class="w-50 text-decoration-none order-2 text-center d-flex flex-column gap-4 animate__animated animate__fadeInDown">
             <span class="color-blue-logo fs-2">{{ title }}</span>
             <div id="card"
                 class="card h-100 position-relative w-50 mx-auto flex-row border-0 rounded-1 bg_transparent justify-content-center">
                 <div class=" rounded-1 text-center mx-auto position-relative" width="500">
-                    <div class="overlay_card rounded-1 w-100">
-                        <!-- <h1 class="ms-2 color-orange-logo">{{ title }}</h1> -->
-                        <h2 class="fw-bolder  me-1 color-orange-logo">View more</h2>
-                    </div>
                     <img :src="image" alt="" class="rounded-1 object-fit-contain" width="300" loading="lazy">
                 </div>
             </div>
-        </router-link>
-        <div class="technologies d-flex flex-column order-0 order-lg-3">
+            <a :href="link_project" class="text-decoration-none" target="_blank">
+                <i class="fa-brands color-orange-logo fa-github fs-3"></i>
+            </a>
+        </a>
+        <div key="technologies" class="technologies d-flex flex-column order-0 order-lg-3 animate__animated animate__fadeInRight">
             <h5 class="text-center fs-3 color-orange-logo mb-4">Technologies</h5>
             <div class="d-flex w-100 justify-content-center flex-wrap">
                 <div v-for="technology in technologies" class="m-2 tech">
-                    <img :src="`${store.base_url}storage/${technology.link_img}`" :alt="technology.name" class="w-100 h-100 object-fit-contain"
-                        loading="lazy">
+                    <img :src="`${store.base_url}storage/${technology.link_img}`" :alt="technology.name"
+                        class="w-100 h-100 object-fit-contain" loading="lazy">
                 </div>
             </div>
         </div>
-        <hr>
-    </div>
+        <hr key="hr" class="animate__animated animate__fadeInUp" style="animation-delay: 1.6s;">
+    </transition-group>
 </template>
 
 
@@ -71,12 +71,21 @@ export default {
 @use '../styles/general.scss';
 @use '../styles/variables' as *;
 
-/* .cont {
-    background-color: linear-gradient($second-8, $first-4);
-} */
+.description {
+    animation-delay: 1.2s;
+}
+
+a.animate__fadeInDown {
+    animation-delay: 0.8s;
+}
+
+.technologies {
+    animation-delay: 0.4s
+}
+
 .tech {
-    width:40px;
-    height:40px;
+    width: 40px;
+    height: 40px;
 }
 
 hr {
@@ -96,77 +105,6 @@ a {
     span {
         margin-top: -15px;
     }
-
-    .overlay_card {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 100%;
-        background-color: $dark-60;
-        opacity: 0; //ricambiare a 0
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.8s ease;
-        margin: 0 auto;
-
-        h1,
-        h2 {
-            letter-spacing: 3px;
-            font-family: 'Noto Sans', sans-serif;
-            font-weight: 700;
-            color: $light;
-            position: relative;
-        }
-
-        h1,
-        h2 {
-            opacity: 0; //ricambiare a 0
-        }
-
-        @keyframes slideToRight {
-            0% {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideToLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(100%);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-    }
-
-    .card:hover .overlay_card {
-        opacity: 1;
-    }
-
-    .card:hover h1 {
-        animation: slideToRight 1s ease .3s 1 normal forwards;
-    }
-
-    .card:hover h2 {
-        animation: slideToLeft 1s ease .3s 1 normal forwards;
-    }
-
-    /*     .card-img-top img {
-        clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-    } */
 
 }
 
@@ -202,10 +140,23 @@ h2 {
         bottom: -5px;
     }
 }
+
 .description {
     text-align: center;
 }
+
 @media screen and (min-width: 992px) {
+    .description {
+        animation-delay: 0.4s;
+    }
+
+    a.animate__fadeInDown {
+        animation-delay: 0.8s;
+    }
+
+    .technologies {
+        animation-delay: 1.2s
+    }
 
     .description,
     .technologies {
@@ -218,8 +169,9 @@ h2 {
     h2 {
         font-size: calc(1.3rem + 0.6vw) !important;
     }
+
     hr {
-        width:90%;
-        margin-left:5%;
+        width: 90%;
+        margin-left: 5%;
     }
 }</style>

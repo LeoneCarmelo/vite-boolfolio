@@ -1,13 +1,12 @@
 <script>
 import { store } from '../store';
-import AppHeader from '../components/AppHeader.vue';
 import NaviGate from '../components/NaviGate.vue';
+
 export default {
     name: "HomePage",
     components: {
-        AppHeader,
-        NaviGate
-
+        NaviGate,
+ 
     },
     data() {
         return {
@@ -44,8 +43,7 @@ export default {
 
 <template>
     <div class="cont">
-        <!-- <AppHeader /> -->
-        <NaviGate />
+         <NaviGate />
         <div class="container-name overflow_y_hide">
             <div class="row justify-content-center w-100">
                 <div class="col text-center">
@@ -55,6 +53,8 @@ export default {
                     </h1>
                 </div>
             </div>
+<!--             <div class="shape-1"></div>
+            <div class="shape-2"></div> -->
         </div>
     </div>
 </template>
@@ -69,6 +69,24 @@ export default {
     height: 100vh;
     width: 100%;
     position: relative;
+    .shape-1{
+        position:absolute;
+        height:100%;
+        width:10%;
+        background: $first-8;
+        clip-path: polygon(38% 0, 30% 75%, 99% 64%, 99% 100%, 0 100%, 0 0);
+        left:0;
+        z-index:-1;
+    }
+    .shape-2{
+        position:absolute;
+        height:100%;
+        width:10%;
+        background: $first-8;
+        clip-path: polygon(34% 26%, 0 0, 100% 0, 100% 100%, 0 100%, 34% 72%, 79% 80%, 79% 19%);
+        right:0;
+        z-index:-1;
+    }
 }
 
 .container-name {

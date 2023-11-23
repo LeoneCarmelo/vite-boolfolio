@@ -1,5 +1,4 @@
 <script>
-import AppHeader from '../components/AppHeader.vue';
 import axios from 'axios';
 import { store } from '../store';
 import NaviGate from '../components/NaviGate.vue';
@@ -12,7 +11,7 @@ export default {
             documents: null
         };
     },
-    components: { AppHeader, NaviGate },
+    components: {  NaviGate  },
     methods: {
         callAPI(url) { //endpoint projects
             axios
@@ -92,11 +91,11 @@ export default {
                     <span class="color-orange-logo fs-1"> Myself</span>
                     <hr class="my-4">
                     <div id="carouselExample" class="carousel slide w-75 mx-auto py-5">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
+                        <div class="carousel-inner rounded">
+                            <div class="carousel-item rounded active">
                                 <img src="io.jpg" class="d-block w-100 rounded" alt="...">
                             </div>
-                            <div class="carousel-item">
+                            <div class="carousel-item rounded">
                                 <img src="io-2.jpg" class="d-block w-100 rounded" alt="...">
                             </div>
                         </div>
@@ -146,28 +145,9 @@ export default {
     }
 }
 
-/* .square {
-    position: absolute;
-    left: -16px;
-    top: -10%;
-    width: 37px;
-    height:10px;
-    background-color: $fourth;
-    z-index: 1;
-    box-shadow: 0 0 16px $fourth,
-    0 0 16px $fourth;
-    animation: move 2s ease 1s infinite forwards;
-} */
-/* @keyframes move {
-    0% {
-        top: -10%;
-    }
-
-    100% {
-        top: 110%;
-    }
-} */
-
+.carousel-inner {
+    box-shadow:0 0 16px $first-6;
+}
 p {
     border-left: 3px solid $second-3;
     position: relative;

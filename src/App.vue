@@ -1,10 +1,7 @@
 <script>
-import AppHeader from './components/AppHeader.vue';
 import { store } from './store';
-
 export default {
     components: {
-    AppHeader
 },
     data() {
         return {
