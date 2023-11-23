@@ -13,37 +13,37 @@ export default {
                 <img src="logo.png" alt="logo" loading="lazy" style="width:50px; height:50px; object-fit: cover;">
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav justify-content-center ms-3 ms-md-0  gap-2 gap-md-0 flex-wrap">
-                    <li class="nav-item d-flex justify-content-center align-items-center"
+                <transition-group class="navbar-nav justify-content-center ms-3 ms-md-0  gap-2 gap-md-0 flex-wrap" tag="ul" name="fade" mode="in-out">
+                    <li key="li" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/' ? 'active' : ''">
-                        <router-link to="/" class="nav-link">
+                        <router-link to="/" class="nav-link animate__animated animate__bounceInDown" style="animation-delay: 0.15s;">
                             <span :class="$route.path === '/' ? 'color-blue-logo' : 'color-orange-logo'">Home</span>
                         </router-link>
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center"
+                    <li key="li" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/projects' ? 'active' : ''">
-                        <router-link to="/projects" class="nav-link">
+                        <router-link to="/projects" class="nav-link  animate__animated animate__bounceInDown" style="animation-delay: 0.30s;">
                             <span
                                 :class="$route.path === '/projects' ? 'color-blue-logo' : 'color-orange-logo'">Projects</span>
                         </router-link>
                     </li>
                     <li class="nav-item text-center logo d-none d-md-block">
-                        <img src="logo.png" alt="" class="w-30" loading="lazy">
+                        <img key="img" src="logo.png" alt="" class="w-30 animate__animated animate__zoomIn" loading="lazy">
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center"
+                    <li key="li" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/about' ? 'active' : ''">
-                        <router-link to="/about" class="nav-link">
+                        <router-link to="/about" class="nav-link animate__animated animate__bounceInDown" style="animation-delay: 0.45s;">
                             <span :class="$route.path === '/about' ? 'color-blue-logo' : 'color-orange-logo'">About</span>
                         </router-link>
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center"
+                    <li key="li" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/contact' ? 'active' : ''">
-                        <router-link to="/contact" class="nav-link">
+                        <router-link to="/contact" class="nav-link animate__animated animate__bounceInDown" style="animation-delay: 0.60s;">
                             <span
                                 :class="$route.path === '/contact' ? 'color-blue-logo' : 'color-orange-logo'">Contact</span>
                         </router-link>
                     </li>
-                </ul>
+                </transition-group>
             </div>
         </div>
     </nav>
