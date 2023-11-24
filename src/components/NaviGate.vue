@@ -13,12 +13,12 @@ export default {
                 <img src="logo.png" alt="logo" loading="lazy" style="width:50px; height:50px; object-fit: cover;">
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <transition-group class="navbar-nav justify-content-center ms-3 ms-md-0  gap-2 gap-md-0 flex-wrap" tag="ul" name="fade" mode="in-out">
+                <ul class="navbar-nav justify-content-center ms-3 ms-md-0  gap-2 gap-md-0 flex-wrap">
                     <li key="home" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/' ? 'active' : ''">
-                        <router-link to="/" class="nav-link animate__animated animate__bounceInDown" style="animation-delay: 0.15s;">
-                            <span :class="$route.path === '/' ? 'color-blue-logo' : 'color-orange-logo'">Home</span>
-                        </router-link>
+                            <router-link to="/" class="nav-link animate__animated animate__bounceInDown" style="animation-delay: 0.15s;">
+                                <span :class="$route.path === '/' ? 'color-blue-logo' : 'color-orange-logo'">Home</span>
+                            </router-link>
                     </li>
                     <li key="projects" class="nav-item d-flex justify-content-center align-items-center"
                         :class="$route.path === '/projects' ? 'active' : ''">
@@ -43,7 +43,7 @@ export default {
                                 :class="$route.path === '/contact' ? 'color-blue-logo' : 'color-orange-logo'">Contact</span>
                         </router-link>
                     </li>
-                </transition-group>
+                </ul>
             </div>
         </div>
     </nav>
