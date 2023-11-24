@@ -7,7 +7,7 @@ export default {
 <template>
     <nav class="navbar navbar-expand-md p-0">
         <div class="container-fluid p-0 justify-content-center">
-            <button class="navbar-toggler m-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler m-3 rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <!-- <span class="navbar-toggler-icon"></span> -->
                 <img src="logo.png" alt="logo" loading="lazy" style="width:50px; height:50px; object-fit: cover;">
@@ -100,7 +100,7 @@ export default {
 
     .nav-link {
         text-decoration: none;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: semibold;
         letter-spacing: 5px;
         padding: 0 !important;
@@ -131,4 +131,12 @@ export default {
         border-top: 3px solid $second-7;
         border-bottom: 3px solid $second-3 !important;
     }
-}</style>
+}
+@media screen and (min-width:992px) {
+    .nav-link {
+        font-size:2rem !important;
+    }
+
+}
+
+</style>
