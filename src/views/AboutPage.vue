@@ -38,15 +38,15 @@ export default {
         <div class="container">
             <div class="row mt-5 ">
                 <div class="col-12 col-lg-6">
-                    <h2 class="color-blue-logo mt-5 fs-1 mb-5 text-center text-lg-start">
+                    <h2 class="color-blue-logo mt-5 fs-1 mb-5 text-center text-lg-start animate__animated animate__zoomInLeft" style="animation-delay: 0.4s">
                         Something about <span class="color-orange-logo">Me</span>
                     </h2>
-                    <h2 class="code my-3 color-orange-logo text-center text-lg-start">
+                    <h2 class="code my-3 color-orange-logo text-center text-lg-start animate__animated animate__slideInLeft">
                         Code
                     </h2>
-                    <div class="mb-5 position-relative">
-                        <div class="line"></div>
-                        <div class="square"></div>
+                    <div class="mb-5 position-relative animate__animated animate__fadeInRight" style="animation-delay: 0.4s">
+                            <div class="line"></div>
+                            <div class="square"></div>
                         <p class="color-blue-logo fs-4 px-4 px-lg-5">
                             Hello! I'm Carmelo, a passionate junior full
                             stack web
@@ -58,7 +58,7 @@ export default {
                 <div
                     class="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-end  align-items-end my-5 my-lg-0">
                     <div class="pc w-50 mb-5">
-                        <img src="pc.png" alt="" class="img-fluid">
+                        <img src="pc.png" alt="" class="img-fluid animate__animated animate__bounceInRight" style="animation-delay: 0.8s">
                         <div class="cv">
                             <div class="docs" v-if="documents">
                                 <a :href="`${store.base_url}storage/${documents[0].file}`" class="text-decoration-none">
@@ -71,11 +71,11 @@ export default {
                 </div>
                 <div class="col-12">
                     <hr class="mb-5 d-sm-none paragraph">
-                    <h2 class="description color-orange-logo text-center text-lg-start">
+                    <h2 class="description color-orange-logo text-center text-lg-start animate__animated animate__slideInLeft">
                         Music
                     </h2>
                     <div class="d-flex">
-                        <div id="music-paragraph" class="w-75 mx-auto mx-lg-0 position-relative">
+                        <div id="music-paragraph" class="w-75 mx-auto mx-lg-0 position-relative animate__animated animate__fadeInRight" style="animation-delay: 0.6s">
                             <div class="line"></div>
                             <p class="color-blue-logo fs-4 px-4 px-lg-5">In addition to being a developer I am also a
                                 musician. My love
@@ -151,6 +151,7 @@ export default {
 p {
     border-left: 3px solid $second-3;
     position: relative;
+    text-align: justify;
 }
 
 @media screen and (max-width: 575px) {
