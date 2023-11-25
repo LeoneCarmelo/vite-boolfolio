@@ -61,7 +61,7 @@ export default {
                         <img src="pc.png" alt="" class="img-fluid animate__animated animate__bounceInRight" style="animation-delay: 0.8s">
                         <div class="cv">
                             <div class="docs" v-if="documents">
-                                <a :href="`${store.base_url}storage/${documents[0].file}`" class="text-decoration-none">
+                                <a :href="`${store.base_url}storage/${documents[0].file}`" class="text-decoration-none animate__animated animate__fadeInDown" style="animation-delay: 1.2s">
                                     <span>{{ documents[0].name }}</span>
                                 </a>
                             </div>
