@@ -18,38 +18,39 @@ export default {
 
     },
     mounted() {
-/*         let textWrapper = document.getElementById('ml3');
-        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const logo = document.querySelector('img[src="logo.png"]')
+            //console.log(logo)
+            function calculateRotationAngle(event) {
+                //Get coordinates based on the position on the logo
+                const boundingBox = logo.getBoundingClientRect();
+                /* get the logo's center 
+                boundingBox.left = form the viewport to the left border of the logo
+                boundingBox.width = the width of the logo / 2 */
+                const centerX = boundingBox.left + boundingBox.width / 2;
+                //same thing for Y
+                const centerY = boundingBox.top + boundingBox.height / 2;
 
-        anime.timeline({ loop: false })
-            .add({
-                targets: '#ml3 .letter',
-                opacity: [0, 1],
-                easing: "easeInOutQuad",
-                duration: 2250,
-                delay: (el, i) => 150 * (i + 1)
-            }).add({
-                targets: '#ml3',
-                opacity: 1,
-                duration: 1000,
-                easing: "easeOutExpo",
-                delay: 1000
-            }); */
-        /*         //console.log(anime)
-                let shape_2 = document.querySelector('.shape-2')
-                let iteration = 0;
-        
-                function changeShape() {
-                    iteration++;
-                    if (iteration % 2 === 0) {
-                        // Even iteration: Change to a different polygon
-                        shape_2.style.clipPath = 'polygon(7.39% 22.42%, 71px 8px, 62.64% 9px, 85.25% 14.56%, 65px 30.57%, 54.11% 85.56%, 35.23% 106.07%, 22.61% 52.13%)';
-                    } else {
-                        // Odd iteration: Change to another polygon
-                        shape_2.style.clipPath = 'polygon(20.75% 65.11%, 2px 89px, 54.6% 65px, .25% 14.56%, 65px 65.57%, 51.11% 85.56%, 95.23% 10.07%, 122.61% 92.13%)';
-                    }
-                }
-                setInterval(changeShape, 5000); */
+                const deltaX = event.clientX - centerX;
+                const deltaY = event.clientY - centerY;
+
+                // Calculate the angle in radians
+                const angle = Math.atan2(deltaY, deltaX);
+
+                // Convert radians to degrees
+                const angleDegrees = angle * (180 / Math.PI);
+
+                return angleDegrees;
+            }
+            // Function to update the rotation of the image based on cursor movement
+            function updateRotation(event) {
+                const angle = calculateRotationAngle(event);
+                logo.style.transform = `rotate(${angle}deg)`;
+            }
+            // Add an event listener to update rotation when the mouse moves
+            document.addEventListener('mousemove', updateRotation);
+        })
+
     }
 
 }
@@ -71,8 +72,6 @@ export default {
                     </router-link>
                 </div>
             </div>
-            <!--             <div class="shape-1"></div>
-            <div class="shape-2"></div> -->
         </div>
     </div>
 </template>
@@ -87,57 +86,6 @@ export default {
     height: 100vh;
     width: 100%;
     position: relative;
-
-    /*     .shape-1 {
-        position: absolute;
-        height: 100%;
-        width: 10%;
-        background: $first-8;
-        clip-path: polygon(38% 0, 30% 75%, 99% 64%, 99% 100%, 0 100%, 0 0);
-        left: 0;
-        z-index: -1;
-    } */
-
-    /*     .shape-2 {
-        position: absolute;
-        height: 100%;
-        width: 10%;
-        background: $first-8;
-        clip-path: polygon(34% 26%, 0 0, 100% 0, 100% 100%, 0 100%, 34% 72%, 79% 80%, 79% 19%);
-        right: 0;
-        z-index: -1;
-    } */
-
-    /*     .shape-2 {
-        position: absolute;
-        height: 100%;
-        width: 0%;
-        background: $first-8;
-        clip-path: polygon(7.39% 22.42%, 71px 8px, 62.64% 9px, 85.25% 14.56%, 65px 30.57%, 54.11% 85.56%, 35.23% 106.07%, 22.61% 52.13%);
-        right: 277px;
-        z-index: -1;
-        rotate: -65deg;
-        animation-name: move;
-        animation-duration: 5s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
-
-    @keyframes move {
-        0% {
-            width: 0%;
-            rotate: -65deg;
-            right: 277px;
-            //clip-path: polygon(7.39% 22.42%, 71px 8px, 62.64% 9px, 85.25% 14.56%, 65px 30.57%, 54.11% 85.56%, 35.23% 106.07%, 22.61% 52.13%);
-        }
-
-        100% {
-            width: 50%;
-            rotate: 165deg;
-            right: 655px;
-            //clip-path: polygon(20.75% 65.11%, 2px 89px, 54.6% 65px, .25% 14.56%, 65px 65.57%, 51.11% 85.56%, 95.23% 10.07%, 122.61% 92.13%);
-        }
-    } */
 }
 
 .container-name {
@@ -176,15 +124,18 @@ export default {
 
     a {
         display: inline-block;
+
         &:hover {
             box-shadow: 0 0 3px $second-3 !important;
         }
+
         &:focus {
             box-shadow: 0 0 3px $first-3 !important;
         }
     }
 
 }
+
 
 
 #ml3 {
