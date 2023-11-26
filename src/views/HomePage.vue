@@ -11,47 +11,65 @@ export default {
     data() {
         return {
             store,
-            my_name: 'Carmelo Leone'
+            my_name: 'Carmelo Leone',
+            updateRotationLogo: ''
         };
     },
     methods: {
+        updateRotation(event, element) {
+            const angle = this.calculateRotationAngle(event, element);
+            element.style.transform = `rotate(${angle}deg)`;
+        },
+        calculateRotationAngle(event, element) {
+            //Get coordinates based on the position on the logo
+            const boundingBox = element.getBoundingClientRect();
+            /* get the logo's center 
+            boundingBox.left = form the viewport to the left border of the logo
+            boundingBox.width = the width of the logo / 2 */
+            const centerX = boundingBox.left + boundingBox.width / 2;
+            //same thing for Y
+            const centerY = boundingBox.top + boundingBox.height / 2;
 
+            const deltaX = event.clientX - centerX;
+            const deltaY = event.clientY - centerY;
+
+            // Calculate the angle in radians
+            const angle = Math.atan2(deltaY, deltaX);
+
+            // Convert radians to degrees
+            const angleDegrees = angle * (180 / Math.PI);
+
+            return angleDegrees;
+        },
+        activateRotation() {
+            const logo = document.querySelector('img[src="logo.png"]');
+            if (logo && !this.updateRotationLogo) {
+                this.updateRotationLogo = (event) => {
+                    this.updateRotation(event, logo);
+                };
+
+                document.addEventListener('mousemove', this.updateRotationLogo);
+            }
+        },
+        deactivateRotation() {
+            if (this.updateRotationLogo) {
+                document.removeEventListener('mousemove', this.updateRotationLogo);
+                this.updateRotationLogo = null;
+            }
+        },
     },
     mounted() {
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const logo = document.querySelector('img[src="logo.png"]')
-            //console.log(logo)
-            function calculateRotationAngle(event) {
-                //Get coordinates based on the position on the logo
-                const boundingBox = logo.getBoundingClientRect();
-                /* get the logo's center 
-                boundingBox.left = form the viewport to the left border of the logo
-                boundingBox.width = the width of the logo / 2 */
-                const centerX = boundingBox.left + boundingBox.width / 2;
-                //same thing for Y
-                const centerY = boundingBox.top + boundingBox.height / 2;
-
-                const deltaX = event.clientX - centerX;
-                const deltaY = event.clientY - centerY;
-
-                // Calculate the angle in radians
-                const angle = Math.atan2(deltaY, deltaX);
-
-                // Convert radians to degrees
-                const angleDegrees = angle * (180 / Math.PI);
-
-                return angleDegrees;
-            }
-            // Function to update the rotation of the image based on cursor movement
-            function updateRotation(event) {
-                const angle = calculateRotationAngle(event);
-                logo.style.transform = `rotate(${angle}deg)`;
-            }
-            // Add an event listener to update rotation when the mouse moves
-            document.addEventListener('mousemove', updateRotation);
-        })
-
-    }
+        this.activateRotation();
+    },
+    beforeUpdate() {
+        this.deactivateRotation();
+    },
+    updated() {
+        this.activateRotation();
+    },
+    beforeDestroy() {
+        this.deactivateRotation();
+    },
 
 }
 </script>
