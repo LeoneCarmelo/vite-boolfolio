@@ -12,7 +12,7 @@ export default {
         return {
             store,
             my_name: 'Carmelo Leone',
-            updateRotationLogo: ''
+            updateRotationLogo: '',
         };
     },
     methods: {
@@ -142,6 +142,8 @@ export default {
 
     a {
         display: inline-block;
+        box-shadow: 0;
+        transition: box-shadow 0.35s ease;
 
         &:hover {
             box-shadow: 0 0 3px $second-3 !important;

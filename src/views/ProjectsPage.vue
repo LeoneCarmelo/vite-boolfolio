@@ -60,13 +60,13 @@ export default {
         <!-- <AppHeader /> -->
         <NaviGate />
         <div class="container">
-            <div class="row align-items-centerjustify-content-center flex-column g-3 mt-0 mt-lg-4" v-if="projects">
+            <div class="row align-items-centerjustify-content-center flex-column g-3 mt-0 mt-lg-4" v-if="projects && projects.length > 0">
                 <CardProject v-for="project in projects" :key="project.id"
                     :image="`${store.base_url}storage/${project.image}`" :link_project="project.link_project"
                     :link_website="project.link_website" :description="project.description"
                     :technologies="project.technologies" :slug="project.slug" :title="project.title" />
             </div>
-            <p v-else class="text-center text-white">No projects found</p>
+            <p v-else class="text-center text-white my-5 fs-3">No projects found!</p>
             <hr>
             <div v-if="projects" class="d-flex justify-content-center py-3">
                 <nav aria-label="Page navigation">
