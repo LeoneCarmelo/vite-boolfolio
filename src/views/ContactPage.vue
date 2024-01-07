@@ -93,8 +93,9 @@ export default {
           </transition-group>
         </div>
         <div class="col px-3">
-          <div v-if="success" class="alert alert-success mt-4 w-75 mx-auto text-center" role="alert">
-            <strong>Message Received!</strong> We will answer you as soon as possible.
+          <div v-if="success" class="alert alert-success mt-4 mx-auto text-center d-flex justify-content-between align-items-center rounded-0" role="alert">
+            <span class="fs-5"><strong class="me-2">Message Received!</strong> We will answer you as soon as possible.</span>
+            <i class="fa fa-window-close ms-3 fs-5 transparent" aria-hidden="true" @click="success = null"></i>
           </div>
 
           <transition-group @submit.prevent="sendForm()" class="d-flex flex-column" tag="form" name="fade" mode="in-out">
@@ -164,6 +165,15 @@ export default {
 @use '../styles/general.scss';
 @use '../styles/variables' as *;
 @use '../styles/common' as *;
+
+.alert-success {
+  background: linear-gradient(to right, $first-1, $first-2, $first-3, $first-4, $first-5, $first-6, $first-7, $first-8);
+  //background: linear-gradient(to right, $second-1, $second-2, $second-3, $second-4, $second-5, $second-6, $second-7, $second-8, $second-9, $second-10);
+  border:0;
+  i {
+    cursor: pointer;
+  }
+}
 
 h2 {
   font-size: 1.5rem;
